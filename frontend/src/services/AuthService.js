@@ -9,3 +9,7 @@ axios.defaults.headers = {
 export function login(email, password) {
     return axios.post(APP_URL + 'login',{email: email, password: password});
 }
+
+export function register(name, email, password, role) {
+    return axios.post(APP_URL + 'register',{name: name, email: email, password: password, role: role});
+}

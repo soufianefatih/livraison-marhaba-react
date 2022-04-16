@@ -16,6 +16,13 @@
     align-items: center;
     height: 100vh;
     }
+
+    .login-fg .bga{background-image: url('https://vectorforfree.com/wp-content/uploads/2020/04/Online_-Delivery_VectorForFree.png') ;top:0;bottom:0;opacity:1;z-index:999;min-height:100vh;position:relative;display:flex;justify-content:center;align-items:center;padding:30px ; background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      }
 .login-fg .info h1{font-size:60px;color:#fff;font-weight:700;margin-bottom:15px;text-transform:uppercase;text-shadow:2px 0px #000}
 .login-fg .info{text-align:center}
 .login-fg .info p{margin-bottom:0;color:#fff;line-height:28px;text-shadow:1px 1px #000}
@@ -54,6 +61,13 @@
 .login-fg .facebook{color:#4867aa}
 .login-fg .twitter{color:#3CF}
 .login-fg .google{color:#db4437}
+
+.login-fg .form-container .form-fg select {
+  float: left;
+  width: 100%;
+  padding: 11px 45px 11px 20px;
+  border-radius: 50px;
+}
 @media (max-width: 1200px) {
 .login-fg .info h1{font-size:45px}
 }

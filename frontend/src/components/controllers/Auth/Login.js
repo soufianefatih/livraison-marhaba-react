@@ -1,6 +1,6 @@
 import React from 'react';
 import { login } from './../../../services/AuthService';
-import "./login.css";
+import "./auth.css";
 
 
 class Login extends React.Component {
@@ -101,7 +101,7 @@ class Login extends React.Component {
               </div>
             </form>
           </div>
-          <p>Don't have an account? <a href="#" className="linkButton"> Register</a></p>
+          <p>Don't have an account? <a href="/register" className="linkButton"> Register</a></p>
         </div>
     
 

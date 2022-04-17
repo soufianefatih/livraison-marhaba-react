@@ -4,6 +4,8 @@ import Siderbar from './../../../src/components/layouts/siderbar';
 import Cards from './../../../src/components/layouts/cards';
 import Tabls from './../../../src/components/layouts/table';
 import Header from './../../../src/components/layouts/header';
+import CardDash from './../../../src/components/layouts/carddash';
+
 
 
 
@@ -22,6 +24,8 @@ class Dashboard extends React.Component {
                  <Header />
                  <Cards />
                  <Tabls />
+                 <CardDash />
+
                  </div>
 
                  </div>

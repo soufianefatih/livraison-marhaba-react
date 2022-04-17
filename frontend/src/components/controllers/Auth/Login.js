@@ -39,7 +39,7 @@ class Login extends React.Component {
         window.localStorage.setItem("role", repLogin.data.user.role);
 
         window.localStorage.setItem("login", 1);
-        window.location = "/";
+        window.location = "/dashboard/category";
       }
     } catch (error) {
       window.localStorage.setItem("login", 0);

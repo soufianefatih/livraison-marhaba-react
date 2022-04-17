@@ -89,7 +89,7 @@ class Siderbar extends React.Component {
             <ul>
              
               <li>
-                <a  className="text-decoration-none" href="">
+                <a  className="text-decoration-none" href="/dashboard/category">
                   <i className="metismenu-icon">
                   </i>All Categorys
                 </a>

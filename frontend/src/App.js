@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Landingpage from './components/pages/landingpage';
 import Login from './components/controllers/Auth/Login';
 import Register from './components/controllers/Auth/Register';
+import Category from './components/controllers/category/Category';
 import Dashboard from './components/dashboard/dashboard';
 import { checkLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
 import { checkIfNotLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
@@ -19,6 +20,8 @@ function App() {
       <Routes>
       <Route path="/login" element={checkIfNotLoginBeforeRenderComponent(<Login />)} />
       <Route path="/register" element={checkIfNotLoginBeforeRenderComponent(<Register />)} />
+      <Route path="/dashboard/category" element={ checkLoginBeforeRenderComponent(<Category/>)} />
+
 
         <Route path="/" element={(<Landingpage />)} />
         <Route path="/dashboard" element={(<Dashboard/>)} />

@@ -1,19 +1,33 @@
 import React from 'react';
-import { login } from './../../../services/AuthService';
+import {  getAllcategory } from './../../../services/Categoryservice';
 
 
-class Login extends React.Component {
+class Category extends React.Component {
   constructor(props) {
     super(props);
-   
-
- 
+    this.state = {
+      infocategory: this.infoCategory(),
+      panding: true,
+     
+    };
+  }
+  async infoCategory() {
+    try {
+      let res = await getAllcategory(); // get axios promise
+      let data = res.data;
+      console.log("ALL Catzgorys :", data);
+      // get all data from pomise
+      // this.setState({ infohotel: data }); // Set data to state
+      // this.setState({ panding: false }); // Change status panding for render data
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   render() {
     return (
 
-  
+  <h1>categorys</h1>
 
 
  
@@ -24,4 +38,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Category;

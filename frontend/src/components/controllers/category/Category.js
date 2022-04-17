@@ -2,6 +2,8 @@ import React from 'react';
 import {  getAllcategory } from './../../../services/Categoryservice';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
+import Cards from './../../../components/layouts/cards';
+
 
 
 class Category extends React.Component {
@@ -39,10 +41,10 @@ class Category extends React.Component {
   <Siderbar />
   <div class="app-main__outer">
       <div className="container mt-5">
-      <h1>categorys</h1>
+      <h3 className='p-3  bg-success text-white'> categorys</h3>
+      <Cards/>
 
       </div>
-
       </div>
       </div>
 

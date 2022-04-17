@@ -5,10 +5,6 @@ import Cards from './../../../src/components/layouts/cards';
 import Tabls from './../../../src/components/layouts/table';
 
 
-
-
-
-
 class Dashboard extends React.Component {
   render() {
     return (

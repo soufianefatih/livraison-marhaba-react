@@ -8,11 +8,11 @@ class Tabls extends React.Component {
 <div className="row">
   <div className="col-md-12">
     <div className="main-card mb-3 card">
-      <div className="card-header">Active Users
+      <div className="card-header">All  Categorys
         <div className="btn-actions-pane-right">
           <div role="group" className="btn-group-sm btn-group">
-            <button className="active btn btn-focus">Last Week</button>
-            <button className="btn btn-focus">All Month</button>
+            <button className="active btn btn-focus">create</button>
+            {/* <button className="btn btn-focus">All Month</button> */}
           </div>
         </div>
       </div>

@@ -104,7 +104,7 @@ class Category extends React.Component {
                 <span className="btn-icon-wrapper pr-2 opacity-7">
                 <i class="fas fa-plus-circle"></i>
                 </span>
-                Create Category
+                <a   className="text-decoration-none text-white" href='/dashboard/category/create'>Create Category</a>
               </button>
              
             </div>

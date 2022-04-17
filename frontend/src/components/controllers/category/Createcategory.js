@@ -52,20 +52,72 @@ class createcategory extends React.Component {
     render() {
         return (
 
-            <div>
+           
+
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+<Navbar />
+<div class="app-main">
+<Siderbar />
+<div class="app-main__outer">
+    <div className="container mt-5">
+
+    <div className="app-page-title">
+      <div className="page-title-wrapper">
+        <div className="page-title-heading">
+          <div className="page-title-icon">
+            <i className="pe-7s-note2 icon-gradient bg-mean-fruit">
+            </i>
+          </div>
+          <div>All Category
+            <div className="page-title-subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+        <div className="page-title-actions">
+          <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" className="btn-shadow mr-3 btn btn-dark">
+            <i className="fa fa-star" />
+          </button>
+          <div className="d-inline-block dropdown">
+            <button type="button" className="btn-shadow  btn btn-info">
+              <span className="btn-icon-wrapper pr-2 opacity-7">
+              <i class="fas fa-plus-circle"></i>
+              </span><a  className="text-decoration-none text-white" href='/dashboard/category/create'>Create Category</a>
+            </button>
+           
+          </div>
+        </div>  </div>
+                   </div>
+    <Cards/>
+    {/* :::::::::::::::::create categorys::::::::::::::::::::: */}
+    <div className='container'>
+   <div className=' card text-white bg-success 'style={{maxWidth: '50rem'}} >
+  <div className="card-header">Create Category</div>
+  <div className="card-body">
+  <div>
                 <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="exampleInputName1" class="form-label">Name</label>
                         <input type="text" value={this.state.name} onChange={this.handleName} class="form-control" id="exampleInputName1" />
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputImage1" class="form-label">profile</label>
+                        <label for="exampleInputImage1" class="form-label">Image</label>
                         <input type="file" onChange={this.handleImage} class="form-control" id="exampleInputImage1" multiple="multiple" />
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
+  </div>
+</div>
+
+</div>
+
+   
+    </div>
+    </div>
+    </div>
+
+</div>
 
         );
     }

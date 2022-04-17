@@ -28,6 +28,12 @@ class Category extends React.Component {
     }
   }
 
+
+
+
+
+
+
   render() {
     let infocategory = "";
     if (!this.state.panding) {
@@ -76,13 +82,40 @@ class Category extends React.Component {
   <Siderbar />
   <div class="app-main__outer">
       <div className="container mt-5">
-      <h3 className='p-3 '>categorys</h3>
+
+      <div className="app-page-title">
+        <div className="page-title-wrapper">
+          <div className="page-title-heading">
+            <div className="page-title-icon">
+              <i className="pe-7s-note2 icon-gradient bg-mean-fruit">
+              </i>
+            </div>
+            <div>All Category
+              <div className="page-title-subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div className="page-title-actions">
+            <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" className="btn-shadow mr-3 btn btn-dark">
+              <i className="fa fa-star" />
+            </button>
+            <div className="d-inline-block dropdown">
+              <button type="button" className="btn-shadow  btn btn-info">
+                <span className="btn-icon-wrapper pr-2 opacity-7">
+                <i class="fas fa-plus-circle"></i>
+                </span>
+                Create Category
+              </button>
+             
+            </div>
+          </div>  </div>
+                     </div>
       <Cards/>
       {/* :::::::::::::::::tables categorys::::::::::::::::::::: */}
        <div className="row">
   <div className="col-md-12">
     <div className="main-card mb-3 card">
-      <div className="card-header">All  Categorys
+      <div className="card-header">Table Categorys
         <div className="btn-actions-pane-right">
           <div role="group" className="btn-group-sm btn-group">
             <button className="active btn btn-focus">Create Category</button>

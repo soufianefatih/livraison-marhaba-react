@@ -3,6 +3,8 @@ import Navbar from './../../../src/components/layouts/navbar';
 import Siderbar from './../../../src/components/layouts/siderbar';
 import Cards from './../../../src/components/layouts/cards';
 import Tabls from './../../../src/components/layouts/table';
+import Header from './../../../src/components/layouts/header';
+
 
 
 class Dashboard extends React.Component {
@@ -16,10 +18,10 @@ class Dashboard extends React.Component {
              <Siderbar />
              <div class="app-main__outer">
                  <div className="container mt-5">
+              
+                 <Header />
                  <Cards />
                  <Tabls />
-
-
                  </div>
 
                  </div>

@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from './../../../src/components/layouts/navbar';
 import Siderbar from './../../../src/components/layouts/siderbar';
 import Cards from './../../../src/components/layouts/cards';
+import Tabls from './../../../src/components/layouts/table';
+
 
 
 
@@ -19,6 +21,8 @@ class Dashboard extends React.Component {
              <div class="app-main__outer">
                  <div className="container mt-5">
                  <Cards />
+                 <Tabls />
+
 
                  </div>
 

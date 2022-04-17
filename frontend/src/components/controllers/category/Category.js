@@ -1,5 +1,7 @@
 import React from 'react';
 import {  getAllcategory } from './../../../services/Categoryservice';
+import Navbar from './../../../components/layouts/navbar';
+import Siderbar from './../../../components/layouts/siderbar';
 
 
 class Category extends React.Component {
@@ -17,20 +19,34 @@ class Category extends React.Component {
       let data = res.data;
       console.log("ALL Catzgorys :", data);
       // get all data from pomise
-      // this.setState({ infohotel: data }); // Set data to state
-      // this.setState({ panding: false }); // Change status panding for render data
+      this.setState({  infocategory: data }); // Set data to state
+      this.setState({ panding: false }); // Change status panding for render data
     } catch (e) {
       console.error(e);
     }
   }
 
   render() {
+
+  
+
+
     return (
 
-  <h1>categorys</h1>
+  <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+  <Navbar />
+  <div class="app-main">
+  <Siderbar />
+  <div class="app-main__outer">
+      <div className="container mt-5">
+      <h1>categorys</h1>
 
+      </div>
 
- 
+      </div>
+      </div>
+
+</div>
 
 
 

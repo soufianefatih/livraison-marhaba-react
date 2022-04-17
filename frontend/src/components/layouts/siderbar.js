@@ -49,6 +49,39 @@ class Siderbar extends React.Component {
           <li className="app-sidebar__heading">Services</li>
           <li>
             <a className="text-decoration-none" href="#">
+              <i className="metismenu-icon pe-7s-users" />
+              Users
+              <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+            </a>
+            <ul>
+             
+              <li>
+                <a  className="text-decoration-none" href="">
+                  <i className="metismenu-icon">
+                  </i>All Users
+
+                </a>
+              </li>
+              <li>
+                <a  className="text-decoration-none" href="">
+                  <i className="metismenu-icon">
+                  </i>All Delivery
+
+                </a>
+              </li>
+              <li>
+                <a  className="text-decoration-none" href="">
+                  <i className="metismenu-icon">
+                  </i> Create User
+
+                </a>
+              </li>
+           
+              
+            </ul>
+          </li>
+          <li>
+            <a className="text-decoration-none" href="#">
               <i className="metismenu-icon pe-7s-note2" />
               Categorys
               <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -61,6 +94,55 @@ class Siderbar extends React.Component {
                   </i>All Categorys
                 </a>
               </li>
+              <li>
+                <a  className="text-decoration-none" href="">
+                  <i className="metismenu-icon">
+                  </i>Create Category
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          <li>
+            <a className="text-decoration-none" href="#">
+              <i className="metismenu-icon pe-7s-menu" />
+              Products
+              <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+            </a>
+            <ul>
+             
+              <li>
+                <a  className="text-decoration-none" href="">
+                  <i className="metismenu-icon">
+                  </i>All  Products
+                </a>
+              </li>
+              <li>
+                <a  className="text-decoration-none" href="">
+                  <i className="metismenu-icon">
+                  </i>Create  Products
+                </a>
+              </li>
+            
+            </ul>
+          </li>
+          <li>
+            <a className="text-decoration-none" href="#">
+              <i className="metismenu-icon pe-7s-cart" />
+              Commands
+              <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+            </a>
+            <ul>
+             
+              <li>
+                <a  className="text-decoration-none" href="">
+                  <i className="metismenu-icon">
+                  </i>All Commands
+
+                </a>
+              </li>
+           
+              
             </ul>
           </li>
          

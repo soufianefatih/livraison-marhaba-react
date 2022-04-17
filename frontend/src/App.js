@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Landingpage from './components/pages/landingpage';
 import Login from './components/controllers/Auth/Login';
 import Register from './components/controllers/Auth/Register';
-
+import Dashboard from './components/dashboard/dashboard';
 import { checkLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
 import { checkIfNotLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
 
@@ -21,6 +21,8 @@ function App() {
       <Route path="/register" element={checkIfNotLoginBeforeRenderComponent(<Register />)} />
 
         <Route path="/" element={(<Landingpage />)} />
+        <Route path="/dashboard" element={(<Dashboard/>)} />
+
       </Routes>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </div>

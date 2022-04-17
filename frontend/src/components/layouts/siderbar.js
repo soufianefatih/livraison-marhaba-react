@@ -5,7 +5,6 @@ class Siderbar extends React.Component {
   render() {
     return (
 
-<div className="app-main">
   <div className="app-sidebar sidebar-shadow">
     <div className="app-header__logo">
       <div className="logo-src" />
@@ -230,7 +229,6 @@ class Siderbar extends React.Component {
       </div>
     </div>
   </div>  
-</div>
 
 
 

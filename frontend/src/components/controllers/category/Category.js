@@ -3,6 +3,8 @@ import {  getAllcategory,updateCategory,getcategory } from './../../../services/
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import Cards from './../../../components/layouts/cards';
+import { handelCatchInAxios } from "../../../services/AxiosCatchService";
+
 
 
 
@@ -13,8 +15,11 @@ class Category extends React.Component {
       infocategory: this.infoCategory(),
       panding: true,
       infoupdate: {},
-      pandingupdate: true
+      pandingupdate: true,
+      newName: null,
     };
+    this.handleName = this.handleName.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   async infoCategory() {
     try {
@@ -34,6 +39,8 @@ async editButton (id) {
     let res = await  getcategory(id); // get axios promise
     let data = res.data;
     console.log("Categorys :", data);
+    this.setState({ infoupdate: data });
+    this.setState({pandingupdate: false });
   
   }catch (e) {
     console.error(e);
@@ -41,6 +48,36 @@ async editButton (id) {
  
 
 }
+
+handleName(event) {
+  this.setState({ newName: event.target.value });
+}
+
+async handleSubmit(event) {
+  event.preventDefault();
+
+  let name = this.state.newName ?? this.state. infoupdate.name;
+
+
+  console.log("A name was updating: " + name);
+
+  try {
+      let resupdate = await updateCategory(
+          this.state.infoupdate.id,
+          name,
+
+      );
+      console.log(resupdate);
+
+      if (resupdate.status == 200) {
+          window.location = "/dashboard/category";
+      }
+  } catch (error) {
+      console.log(error);
+      handelCatchInAxios(error);
+  }
+}
+
 
 
 
@@ -83,7 +120,31 @@ async editButton (id) {
         );
       });
     }
-  
+
+    let updateForm = "";
+
+    if (!this.state.pandingupdate) {
+        updateForm = (
+            <form onSubmit={this.handleSubmit}>
+                <div className="mb-3">
+                    <label htmlFor="exampleInputName1" className="form-label">
+                        Name
+                    </label>
+                    <input
+                        type="text"
+                        value={this.state.newName ?? this.state.infoupdate.name}
+                        onChange={this.handleName}
+                        className="form-control"
+                        id="exampleInputName1"
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+            
+        );
+    }
 
 
     return (
@@ -156,6 +217,7 @@ async editButton (id) {
     </div>
   </div>
        </div>
+     {  updateForm}
       </div>
       </div>
       </div>

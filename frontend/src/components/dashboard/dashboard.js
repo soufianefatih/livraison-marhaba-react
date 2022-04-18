@@ -5,6 +5,8 @@ import Cards from './../../../src/components/layouts/cards';
 import Tabls from './../../../src/components/layouts/table';
 import Header from './../../../src/components/layouts/header';
 import CardDash from './../../../src/components/layouts/carddash';
+import Forms from './../../../src/components/layouts/forms';
+
 
 
 
@@ -25,6 +27,8 @@ class Dashboard extends React.Component {
                  <Cards />
                  <Tabls />
                  <CardDash />
+                 <Forms />
+
 
                  </div>
 

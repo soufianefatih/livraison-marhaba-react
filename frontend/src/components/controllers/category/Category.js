@@ -45,10 +45,7 @@ class Category extends React.Component {
           <td>
             <div className="widget-content p-0">
               <div className="widget-content-wrapper">
-                <div className="widget-content-left mr-3">
-                  <div className="widget-content-left">
-                  </div>
-                </div>
+               
                 <div className="widget-content-left flex2">
                   <div className="widget-heading">{category.name}</div>
                 </div>
@@ -75,7 +72,6 @@ class Category extends React.Component {
 
 
     return (
-
   <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
   <Navbar />
   <div class="app-main">
@@ -127,7 +123,7 @@ class Category extends React.Component {
           <thead>
             <tr>
               <th className="text-center">#</th>
-              <th>Name</th>
+              <th >Name</th>
               <th className="text-center">Image</th>
               <th className="text-center">update</th>
               <th className="text-center">Delete</th>
@@ -150,7 +146,6 @@ class Category extends React.Component {
       </div>
 
 </div>
-
 
 
     );

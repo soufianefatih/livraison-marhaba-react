@@ -1,5 +1,5 @@
 import React from 'react';
-import {  getAllcategory,updateCategory,getcategory } from './../../../services/Categoryservice';
+import {  getAllcategory,updateCategory,getcategory,deleteCategory } from './../../../services/Categoryservice';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import Cards from './../../../components/layouts/cards';
@@ -50,8 +50,8 @@ async editButton (id) {
 }
 async deleteButton (id) {
   try {
-    let delete = await deleteCategory(id);
-    console.log("deleteButton:", delete);
+    let deletecategory = await deleteCategory(id);
+    console.log("deleteButton:", deletecategory);
     alert("category is deleted!");
     window.location = "/dashboard/category";
 } catch (e) {
@@ -97,6 +97,7 @@ async handleSubmit(event) {
 
 
   render() {
+    // table category:::::::::::::::::::::::::::::::::::::::::
     let tablecategory = "";
     if (!this.state.panding) {
       let ThisClass = this;
@@ -132,7 +133,8 @@ async handleSubmit(event) {
         );
       });
     }
-
+    
+    // update category:::::::::::::::::::::::::::::::::::::::::
     let updateForm = "";
 
     if (!this.state.pandingupdate) {

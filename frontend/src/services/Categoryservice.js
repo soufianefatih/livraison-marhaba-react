@@ -33,3 +33,8 @@ export function updateCategory(id, name) {
   console.log('category updating');
   return axios.post(APP_URL + "category/update/" + id, { name: name });
 }
+
+export function deleteCategory(id) {
+  console.log('category deleted');
+  return axios.delete(APP_URL + "category/delete/" + id);
+}

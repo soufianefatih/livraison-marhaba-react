@@ -125,23 +125,25 @@ async handleSubmit(event) {
 
     if (!this.state.pandingupdate) {
         updateForm = (
-            <form onSubmit={this.handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputName1" className="form-label">
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        value={this.state.newName ?? this.state.infoupdate.name}
-                        onChange={this.handleName}
-                        className="form-control"
-                        id="exampleInputName1"
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">
-                    Submit
-                </button>
-            </form>
+           
+            <div className='container '>
+            <div className=' card text-white bg-success 'style={{maxWidth: '100rem'}} >
+           <div className="card-header">Update Category</div>
+           <div className="card-body">
+           <div>
+                         <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+                             <div class="mb-3">
+                                 <label for="exampleInputName1" class="form-label">Name</label>
+                                 <input type="text" value={this.state.newName ?? this.state.infoupdate.name}  onChange={this.handleName}class="form-control" id="exampleInputName1" />
+                             </div>
+                           
+                             <button type="submit" class="btn btn-primary">Submit</button>
+                         </form>
+                     </div>
+           </div>
+         </div>
+         
+         </div>
             
         );
     }
@@ -153,7 +155,7 @@ async handleSubmit(event) {
   <div class="app-main">
   <Siderbar />
   <div class="app-main__outer">
-      <div className="container mt-5">
+      <div className="container mt-5 " >
 
       <div className="app-page-title">
         <div className="page-title-wrapper">

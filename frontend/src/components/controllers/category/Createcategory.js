@@ -90,7 +90,7 @@ class createcategory extends React.Component {
     <Cards/>
     {/* :::::::::::::::::create categorys::::::::::::::::::::: */}
     <div className='container'>
-   <div className=' card text-white bg-success 'style={{maxWidth: '50rem'}} >
+   <div className=' card text-white bg-success 'style={{maxWidth: '100rem'}} >
   <div className="card-header">Create Category</div>
   <div className="card-body">
   <div>

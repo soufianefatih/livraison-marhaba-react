@@ -24,3 +24,8 @@ export function createCategorys(name, image) {
 
   return axios.post(APP_URL + "category/create", formData);
 }
+
+export function updateCategory(id, name) {
+  console.log('category updating');
+  return axios.post(APP_URL + "category/update" + id, { name: name });
+}

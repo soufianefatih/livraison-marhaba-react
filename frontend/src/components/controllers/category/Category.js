@@ -48,6 +48,18 @@ async editButton (id) {
  
 
 }
+async deleteButton (id) {
+  try {
+    let delete = await deleteCategory(id);
+    console.log("deleteButton:", delete);
+    alert("category is deleted!");
+    window.location = "/dashboard/category";
+} catch (e) {
+    console.error(e);
+    handelCatchInAxios(e);
+}
+
+}
 
 handleName(event) {
   this.setState({ newName: event.target.value });
@@ -108,10 +120,10 @@ async handleSubmit(event) {
             <img width={40} className="rounded-circle" src={src} alt />
              </td>
           <td className="text-center">
-            <div className=" btn btn-warning btn-sm"onClick={() => ThisClass.editButton(category.id)}> <i class="fas fa-edit"></i> update</div>
+            <div className=" btn btn-warning btn-sm" onClick={() => ThisClass.editButton(category.id)}> <i class="fas fa-edit"></i> update</div>
           </td>
           <td className="text-center">
-            <div className=" btn btn-danger btn-sm"> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
+            <div className=" btn btn-danger btn-sm" onClick={() => ThisClass.deleteButton(category.id)}> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
           </td>
           <td className="text-center">
             <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm">Details</button>

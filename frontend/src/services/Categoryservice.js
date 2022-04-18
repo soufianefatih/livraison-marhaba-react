@@ -10,6 +10,10 @@ export function getAllcategory() {
   console.log("function getAllcategory");
   return axios.get(APP_URL + "category");
 }
+export function getcategory(id) {
+  console.log("function getAllcategory");
+  return axios.get(APP_URL + "category/"+id);
+}
 
 export function createCategorys(name, image) {
   console.log("getAllcategory");
@@ -27,5 +31,5 @@ export function createCategorys(name, image) {
 
 export function updateCategory(id, name) {
   console.log('category updating');
-  return axios.post(APP_URL + "category/update" + id, { name: name });
+  return axios.post(APP_URL + "category/update/" + id, { name: name });
 }

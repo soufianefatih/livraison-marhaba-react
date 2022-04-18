@@ -1,5 +1,5 @@
 import React from 'react';
-import {  getAllcategory } from './../../../services/Categoryservice';
+import {  getAllcategory,updateCategory,getcategory } from './../../../services/Categoryservice';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import Cards from './../../../components/layouts/cards';
@@ -12,7 +12,8 @@ class Category extends React.Component {
     this.state = {
       infocategory: this.infoCategory(),
       panding: true,
-     
+      infoupdate: {},
+      pandingupdate: true
     };
   }
   async infoCategory() {
@@ -27,7 +28,19 @@ class Category extends React.Component {
       console.error(e);
     }
   }
+async editButton (id) {
+  try{
 
+    let res = await  getcategory(id); // get axios promise
+    let data = res.data;
+    console.log("Categorys :", data);
+  
+  }catch (e) {
+    console.error(e);
+  }
+ 
+
+}
 
 
 
@@ -35,12 +48,14 @@ class Category extends React.Component {
 
 
   render() {
-    let infocategory = "";
+    let tablecategory = "";
     if (!this.state.panding) {
-      infocategory = this.state.infocategory.map(function (category) {
+      let ThisClass = this;
+      tablecategory = this.state.infocategory.map(function (category,index) {
         let src = "http://localhost:5500/" + category.image
         return (
-          <tr>
+          
+          <tr  key={index}>
           <td className="text-center text-muted">{category.id}</td>
           <td>
             <div className="widget-content p-0">
@@ -56,7 +71,7 @@ class Category extends React.Component {
             <img width={40} className="rounded-circle" src={src} alt />
              </td>
           <td className="text-center">
-            <div className=" btn btn-warning btn-sm"> <i class="fas fa-edit"></i> update</div>
+            <div className=" btn btn-warning btn-sm"onClick={() => ThisClass.editButton(category.id)}> <i class="fas fa-edit"></i> update</div>
           </td>
           <td className="text-center">
             <div className=" btn btn-danger btn-sm"> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
@@ -131,7 +146,7 @@ class Category extends React.Component {
             </tr>
           </thead>
           <tbody>
-          { infocategory}
+          { tablecategory}
 
           
           </tbody>

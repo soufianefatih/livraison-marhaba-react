@@ -1,5 +1,5 @@
 import React from 'react';
-import {  getAllcategory,updateCategory,getcategory,deleteCategory } from './../../../services/Categoryservice';
+import {  getAllcategory,updateCategory,getcategory,deleteCategory,getcategorydetails } from './../../../services/Categoryservice';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import Cards from './../../../components/layouts/cards';
@@ -14,7 +14,10 @@ class Category extends React.Component {
     this.state = {
       infocategory: this.infoCategory(),
       panding: true,
-      infoupdate: {},
+      infopdate: {},
+      infouproducts: {},
+      pandingcategory: true,
+      pandingproducts: true,
       pandingupdate: true,
       newName: null,
     };
@@ -39,7 +42,7 @@ async editButton (id) {
     let res = await  getcategory(id); // get axios promise
     let data = res.data;
     console.log("Categorys :", data);
-    this.setState({ infoupdate: data });
+    this.setState({ infopdate: data });
     this.setState({pandingupdate: false });
   
   }catch (e) {
@@ -60,6 +63,22 @@ async deleteButton (id) {
 }
 
 }
+async detailsButton (id) {
+  try {
+    let detail = await getcategorydetails(id);
+    let data = detail.data; 
+    console.log("info category products:", data);  
+    this.setState({ infoproducts: data });
+    this.setState({pandingproducts: false });
+    this.setState({pandingcategory: false });
+
+   
+} catch (e) {
+    console.error(e);
+    handelCatchInAxios(e);
+}
+
+}
 
 handleName(event) {
   this.setState({ newName: event.target.value });
@@ -68,14 +87,14 @@ handleName(event) {
 async handleSubmit(event) {
   event.preventDefault();
 
-  let name = this.state.newName ?? this.state. infoupdate.name;
+  let name = this.state.newName ?? this.state. infopdate.name;
 
 
   console.log("A name was updating: " + name);
 
   try {
       let resupdate = await updateCategory(
-          this.state.infoupdate.id,
+          this.state.infopdate.id,
           name,
 
       );
@@ -127,13 +146,13 @@ async handleSubmit(event) {
             <div className=" btn btn-danger btn-sm" onClick={() => ThisClass.deleteButton(category.id)}> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
           </td>
           <td className="text-center">
-            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm">Details</button>
+            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" onClick={() => ThisClass.detailsButton(category.id)}>Details</button>
           </td>
         </tr>
         );
       });
     }
-    
+
     // update category:::::::::::::::::::::::::::::::::::::::::
     let updateForm = "";
 
@@ -148,7 +167,7 @@ async handleSubmit(event) {
                          <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
                              <div class="mb-3">
                                  <label for="exampleInputName1" class="form-label">Name</label>
-                                 <input type="text" value={this.state.newName ?? this.state.infoupdate.name}  onChange={this.handleName}class="form-control" id="exampleInputName1" />
+                                 <input type="text" value={this.state.newName ?? this.state.infopdate.name}  onChange={this.handleName}class="form-control" id="exampleInputName1" />
                              </div>
                            
                              <button type="submit" class="btn btn-primary">Submit</button>
@@ -161,7 +180,34 @@ async handleSubmit(event) {
             
         );
     }
+//  info category :::::::::::::::::::::::::::::::::::::::::::::
+    let infocategory = "";
+    if (!this.state.pandingcategory) {
 
+      infocategory = (
+
+            <div>
+                <p> {this.state.infoproducts.name}</p>
+
+            </div>
+        )
+    }
+    //  info products :::::::::::::::::::::::::::::::::::::::::::::
+
+    let infoproducts = "";
+    if (!this.state.pandingproducts) {
+      infoproducts = this.state.infoproducts.products.map(function (product) {
+            return <ul>
+                <li> products name {product.name}</li>
+                <li> products description {product.decsription}</li>
+                <li> products price {product.price}</li>
+
+
+             
+            </ul>
+        })
+
+    }
 
     return (
   <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -234,6 +280,11 @@ async handleSubmit(event) {
   </div>
        </div>
      {  updateForm}
+     <div>
+     {infocategory}
+     {infoproducts}
+     </div>
+    
       </div>
       </div>
       </div>

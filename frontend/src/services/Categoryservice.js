@@ -7,11 +7,9 @@ axios.defaults.headers = {
 };
 
 export function getAllcategory() {
-  console.log("function getAllcategory");
   return axios.get(APP_URL + "category");
 }
 export function getcategory(id) {
-  console.log("function getAllcategory");
   return axios.get(APP_URL + "category/"+id);
 }
 
@@ -37,4 +35,10 @@ export function updateCategory(id, name) {
 export function deleteCategory(id) {
   console.log('category deleted');
   return axios.delete(APP_URL + "category/delete/" + id);
+}
+
+
+export function getcategorydetails(id) {
+  console.log("getcategorydetails");
+  return axios.get(APP_URL + "category/products/"+id);
 }

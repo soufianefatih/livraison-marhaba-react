@@ -11,9 +11,9 @@ export function getAllusers() {
     return axios.get(APP_URL + "users");
   }
 
- export function createuser(name,email,role,status) {
+ export function createuser(name,email,password,role,status) {
     console.log("createuser");
   
 
-    return axios.post(APP_URL + "users/create" ,{ name: name ,email:email ,role:role ,status:status });
+    return axios.post(APP_URL + "users/create" ,{ name: name ,email:email ,password:password,role:role ,status:status });
   }

@@ -10,3 +10,10 @@ export function getAllusers() {
     console.log('All users :',getAllusers);
     return axios.get(APP_URL + "users");
   }
+
+ export function createuser(name,email,role,status) {
+    console.log("createuser");
+  
+
+    return axios.post(APP_URL + "users/create" ,{ name: name ,email:email ,role:role ,status:status });
+  }

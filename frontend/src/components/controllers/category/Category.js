@@ -187,7 +187,7 @@ async handleSubmit(event) {
       infocategory = (
 
             <div>
-                <p> {this.state.infoproducts.name}</p>
+                <h5 className='text-white p-2 bg-dark'> Category Name : {this.state.infoproducts.name}</h5>
 
             </div>
         )
@@ -197,43 +197,23 @@ async handleSubmit(event) {
     let infoproducts = "";
     if (!this.state.pandingproducts) {
       infoproducts = this.state.infoproducts.products.map(function (product) {
-            return  <section className="card" >
-            <figure>
-              <div className="img-overlay hot-home">
-                <img src="" alt="Trulli" />
-                <div className="overlay">
-                  <a href="#">view property</a>
-                </div>
-                <div className="cont">
-                  <div className="icons-img">
-                    <button>
-                      <i className="fas fa-heart" />
-                    </button>
-                    <button>
-                      <i className="fas fa-share" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </figure>
-            <div className="card-content">
-              <h5>{product.name}</h5>
-              <p>  {product.decsription}</p>
+            return  ( 
+              <div className="card " >
+              <img className="card-img-top" src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/high-protein-dinners-slow-cooker-meatballs-image-5a04d02.jpg?quality=90&resize=500,454" height={'200px'} alt="Card image cap" />
+            <div className="card-body">
+            <h5 className="card-title">{product.name}</h5>
+           <p className="card-text">{product.decsription} </p>
+           <p className="card-text">{product.price} $</p>
 
-              {/* <button
-                onClick={async () => {
-                  await ThisClass.infoRoom(hotel.id);
-                  ThisClass.showModal();
-                }}
-                type="button"
-                data-toggle="modal"
-                data-target=".bd-example-modal-lg"
-                className="btn btn-sm btn-outline-danger"
-              >
-                View room
-              </button> */}
             </div>
-          </section>
+    </div>
+  
+  
+  
+          
+          
+          )
+            
         })
 
     }
@@ -309,20 +289,20 @@ async handleSubmit(event) {
   </div>
        </div>
      {  updateForm}
-     <div>
+     
      {infocategory}
-     <div className="container">
-          <div className="cards">
-          {infoproducts}
-          </div>
-        </div>
+     <div className="card-deck ">
+    {infoproducts}
+    </div>
+ 
+     
      </div>
     
       </div>
       </div>
       </div>
 
-</div>
+
 
 
     );

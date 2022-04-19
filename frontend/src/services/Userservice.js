@@ -22,3 +22,6 @@ export function getAllusers() {
     console.log('All dilevery :',getAlldilevry);
     return axios.get(APP_URL + "users/delivery");
   }
+  export function getuser(id) {
+    return axios.get(APP_URL + "users/" + id);
+  }

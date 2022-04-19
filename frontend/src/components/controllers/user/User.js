@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
-import { getAllusers } from './../../../services/Userservice';
+import { getAllusers , getuser } from './../../../services/Userservice';
 import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
@@ -29,6 +29,22 @@ class User extends React.Component {
       handelCatchInAxios(e);
 
     }
+  }
+
+  async editButton (id) {
+    try{
+  
+      let res = await  getuser(id); // get axios promise
+      let data = res.data;
+      console.log("user :", data);
+    //   this.setState({ infopdate: data });
+    //   this.setState({pandingupdate: false });
+    
+    }catch (e) {
+      console.error(e);
+    }
+   
+  
   }
 
 
@@ -70,7 +86,7 @@ class User extends React.Component {
 
              </td>
           <td className="text-center">
-            <div className=" btn btn-warning btn-sm" > <i class="fas fa-edit"></i> update</div>
+            <div className=" btn btn-warning btn-sm" onClick={() => ThisClass.editButton(user.id)} > <i class="fas fa-edit"></i> update</div>
           </td>
           <td className="text-center">
             <div className=" btn btn-danger btn-sm" > <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>

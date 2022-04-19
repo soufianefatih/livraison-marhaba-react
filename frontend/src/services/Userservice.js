@@ -29,3 +29,7 @@ export function getAllusers() {
 //     console.log('user updating');
 //     return axios.post(APP_URL + "users/update/" + id, { name: name , email:email , password: password , role: role, status:status});
 //   }
+
+export function deleteUser(id) {
+    return axios.delete(APP_URL + "users/delete/" + id);
+  }

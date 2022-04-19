@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
-import { getAllusers , getuser } from './../../../services/Userservice';
+import { getAllusers , getuser ,deleteUser } from './../../../services/Userservice';
 import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
@@ -33,7 +33,18 @@ class User extends React.Component {
 
     }
   }
-
+  async deleteButton (id) {
+    try {
+      let deleteuser = await deleteUser(id);
+      console.log("deleteButton:", deleteuser);
+      alert("user is deleted!");
+      window.location = "/dashboard/user";
+  } catch (e) {
+      console.error(e);
+      handelCatchInAxios(e);
+  }
+  
+  }
   
 
 
@@ -70,11 +81,10 @@ class User extends React.Component {
              </td>
              <td className="text-center">
           <div className="widget-heading">{user.status}</div>
-
              </td>
          
           <td className="text-center">
-            <div className=" btn btn-danger btn-sm" > <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
+            <div className=" btn btn-danger btn-sm" onClick={() => ThisClass.deleteButton(user.id)}> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
           </td>
           <td className="text-center">
             <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" >Details</button>

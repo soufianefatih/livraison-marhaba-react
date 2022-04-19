@@ -6,10 +6,6 @@ import { getAllusers } from './../../../services/Userservice';
 import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
-
-
-
-
 class User extends React.Component {
   constructor(props) {
     super(props);
@@ -42,6 +38,50 @@ class User extends React.Component {
 
 
   render() {
+       // table category:::::::::::::::::::::::::::::::::::::::::
+    let tableusers = "";
+    if (!this.state.panding) {
+      let ThisClass = this;
+      tableusers = this.state.infouser.map(function (user,index) {
+        return (
+          
+          <tr  key={index}>
+          <td className="text-center text-muted">{user.id}</td>
+          <td>
+            <div className="widget-content p-0">
+              <div className="widget-content-wrapper">
+               
+                <div className="widget-content-left flex2">
+                  <div className="widget-heading">{user.name}</div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td className="text-center">
+          <div className="widget-heading">{user.email}</div>
+
+             </td>
+             <td className="text-center">
+          <div className="widget-heading">{user.role}</div>
+
+             </td>
+             <td className="text-center">
+          <div className="widget-heading">{user.status}</div>
+
+             </td>
+          <td className="text-center">
+            <div className=" btn btn-warning btn-sm" > <i class="fas fa-edit"></i> update</div>
+          </td>
+          <td className="text-center">
+            <div className=" btn btn-danger btn-sm" > <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
+          </td>
+          <td className="text-center">
+            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" >Details</button>
+          </td>
+        </tr>
+        );
+      });
+    }
     
     return (
   <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -79,7 +119,7 @@ class User extends React.Component {
           </div>  </div>
                      </div>
       <CardDash/>
-      {/* :::::::::::::::::tables categorys::::::::::::::::::::: */}
+      {/* :::::::::::::::::tables users::::::::::::::::::::: */}
        <div className="row">
   <div className="col-md-12">
     <div className="main-card mb-3 card">
@@ -105,9 +145,7 @@ class User extends React.Component {
             </tr>
           </thead>
           <tbody>
-          
-
-          
+             {tableusers}
           </tbody>
         </table>
       </div>

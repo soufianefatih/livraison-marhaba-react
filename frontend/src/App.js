@@ -7,6 +7,8 @@ import Landingpage from './components/pages/landingpage';
 import Login from './components/controllers/Auth/Login';
 import Register from './components/controllers/Auth/Register';
 import Category from './components/controllers/category/Category';
+import User from './components/controllers/user/User';
+
 import Createcategory from './components/controllers/category/Createcategory';
 
 import Dashboard from './components/dashboard/dashboard';
@@ -24,6 +26,8 @@ function App() {
       <Route path="/register" element={checkIfNotLoginBeforeRenderComponent(<Register />)} />
       <Route path="/dashboard/category" element={ checkLoginBeforeRenderComponent(<Category/>)} />
       <Route path="/dashboard/category/create" element={ checkLoginBeforeRenderComponent(<Createcategory/>)} />
+      <Route path="/dashboard/user" element={ checkLoginBeforeRenderComponent(<User/>)} />
+
 
 
 

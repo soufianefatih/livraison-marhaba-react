@@ -2,16 +2,38 @@ import React from 'react';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
+import { getAllusers } from './../../../services/Userservice';
+import { handelCatchInAxios } from "../../../services/AxiosCatchService";
+
+
 
 
 
 
 class User extends React.Component {
-//   constructor(props) {
+  constructor(props) {
+    super(props);
+    this.state = {
+      infouser: this.infoUsers(),
+      panding: true,
+   
+    };
   
-  
-//   }
+  }
+  async infoUsers() {
+    try {
+      let res = await getAllusers(); // get axios promise
+      let data = res.data;
+      console.log("ALL Users :", data);
+      // get all data from pomise
+      this.setState({  infouser: data }); // Set data to state
+      this.setState({ panding: false }); // Change status panding for render data
+    } catch (e) {
+      console.error(e);
+      handelCatchInAxios(e);
 
+    }
+  }
 
 
 
@@ -36,7 +58,7 @@ class User extends React.Component {
               <i className="pe-7s-note2 icon-gradient bg-mean-fruit">
               </i>
             </div>
-            <div>All Category
+            <div>All Users
               <div className="page-title-subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </div>
             </div>
@@ -50,7 +72,7 @@ class User extends React.Component {
                 <span className="btn-icon-wrapper pr-2 opacity-7">
                 <i class="fas fa-plus-circle"></i>
                 </span>
-                <a   className="text-decoration-none text-white" href='/dashboard/category/create'>Create Category</a>
+                <a   className="text-decoration-none text-white" href='/dashboard/user/create'>Create user</a>
               </button>
              
             </div>
@@ -61,10 +83,10 @@ class User extends React.Component {
        <div className="row">
   <div className="col-md-12">
     <div className="main-card mb-3 card">
-      <div className="card-header">Table Categorys
+      <div className="card-header">Table users
         <div className="btn-actions-pane-right">
           <div role="group" className="btn-group-sm btn-group">
-            <button className="active btn btn-focus">Create Category</button>
+            <button className="active btn btn-focus">Create User</button>
           </div>
         </div>
       </div>
@@ -74,7 +96,9 @@ class User extends React.Component {
             <tr>
               <th className="text-center">#</th>
               <th >Name</th>
-              <th className="text-center">Image</th>
+              <th className="text-center">Email</th>
+              <th className="text-center">Role</th>
+              <th className="text-center">Status</th>
               <th className="text-center">update</th>
               <th className="text-center">Delete</th>
               <th className="text-center">info</th>

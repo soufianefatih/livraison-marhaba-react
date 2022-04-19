@@ -17,3 +17,8 @@ export function getAllusers() {
 
     return axios.post(APP_URL + "users/create" ,{ name: name ,email:email ,password:password,role:role ,status:status });
   }
+
+  export function getAlldilevry() {
+    console.log('All dilevery :',getAlldilevry);
+    return axios.get(APP_URL + "users/delivery");
+  }

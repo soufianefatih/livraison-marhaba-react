@@ -4,7 +4,7 @@ import React from "react";
 class Cards extends React.Component {
   render() {
     return (
-        <div className="container">
+        <div className="container mt-5">
    <div className="row">
   <div className="col-md-6 col-xl-4">
     <div className="card mb-3 widget-content bg-midnight-bloom">
@@ -60,6 +60,7 @@ class Cards extends React.Component {
   </div>
 </div>
 </div>
+
 
 
 

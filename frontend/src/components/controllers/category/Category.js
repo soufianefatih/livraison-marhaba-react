@@ -2,7 +2,7 @@ import React from 'react';
 import {  getAllcategory,updateCategory,getcategory,deleteCategory,getcategorydetails } from './../../../services/Categoryservice';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
-import Cards from './../../../components/layouts/cards';
+import CardDash from './../../../components/layouts/carddash';
 import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
@@ -187,7 +187,7 @@ async handleSubmit(event) {
       infocategory = (
 
             <div>
-                <h5 className='text-white p-2 bg-secondary'> Category Name : {this.state.infoproducts.name}</h5>
+                <h5 className='text-white p-2 bg-secondary' style={{maxWidth: '17rem'}}> Category Name : {this.state.infoproducts.name}</h5>
 
             </div>
         )
@@ -198,7 +198,7 @@ async handleSubmit(event) {
     if (!this.state.pandingproducts) {
       infoproducts = this.state.infoproducts.products.map(function (product) {
             return  ( 
-              <div className="card " >
+              <div className="card " style={{maxWidth: '20rem'}} >
               <img className="card-img-top" src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/high-protein-dinners-slow-cooker-meatballs-image-5a04d02.jpg?quality=90&resize=500,454" height={'200px'} alt="Card image cap" />
             <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
@@ -253,7 +253,7 @@ async handleSubmit(event) {
             </div>
           </div>  </div>
                      </div>
-      <Cards/>
+      <CardDash/>
       {/* :::::::::::::::::tables categorys::::::::::::::::::::: */}
        <div className="row">
   <div className="col-md-12">
@@ -291,7 +291,7 @@ async handleSubmit(event) {
      {  updateForm}
      
      {infocategory}
-     <div className="card-deck ">
+     <div className="card-deck d-flex justify-content-center mt-3 ">
     {infoproducts}
     </div>
  

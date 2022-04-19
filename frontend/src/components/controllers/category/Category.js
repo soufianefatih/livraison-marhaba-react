@@ -121,7 +121,7 @@ async handleSubmit(event) {
     if (!this.state.panding) {
       let ThisClass = this;
       tablecategory = this.state.infocategory.map(function (category,index) {
-        let src = "http://localhost:5500/" + category.image
+        let src = "http://localhost:5500/" + category.image ;
         return (
           
           <tr  key={index}>

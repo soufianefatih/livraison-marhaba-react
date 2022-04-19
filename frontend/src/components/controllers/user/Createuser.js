@@ -133,8 +133,8 @@ class Createuser extends React.Component {
                         <select for="exampleInputImage1" class="form-control" value={this.state.status} onChange={this.handleStatus} required>
                                 <option >Status</option>
 
-                                <option value='client'>Client</option>
-                                <option value="livreur">delivery</option>
+                                <option value='0'>0</option>
+                                <option value="1">1</option>
                             </select>
                     </div>
 

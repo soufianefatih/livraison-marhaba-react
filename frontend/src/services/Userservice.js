@@ -25,3 +25,7 @@ export function getAllusers() {
   export function getuser(id) {
     return axios.get(APP_URL + "users/" + id);
   }
+//   export function updateuser(id, name, email,password,role,status) {
+//     console.log('user updating');
+//     return axios.post(APP_URL + "users/update/" + id, { name: name , email:email , password: password , role: role, status:status});
+//   }

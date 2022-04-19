@@ -12,8 +12,11 @@ class User extends React.Component {
     this.state = {
       infouser: this.infoUsers(),
       panding: true,
-   
+      infopdate :{},
+      pandingupdate: true,
+     
     };
+ 
   
   }
   async infoUsers() {
@@ -31,23 +34,7 @@ class User extends React.Component {
     }
   }
 
-  async editButton (id) {
-    try{
   
-      let res = await  getuser(id); // get axios promise
-      let data = res.data;
-      console.log("user :", data);
-    //   this.setState({ infopdate: data });
-    //   this.setState({pandingupdate: false });
-    
-    }catch (e) {
-      console.error(e);
-    }
-   
-  
-  }
-
-
 
 
 
@@ -85,9 +72,7 @@ class User extends React.Component {
           <div className="widget-heading">{user.status}</div>
 
              </td>
-          <td className="text-center">
-            <div className=" btn btn-warning btn-sm" onClick={() => ThisClass.editButton(user.id)} > <i class="fas fa-edit"></i> update</div>
-          </td>
+         
           <td className="text-center">
             <div className=" btn btn-danger btn-sm" > <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
           </td>
@@ -98,6 +83,8 @@ class User extends React.Component {
         );
       });
     }
+
+   
     
     return (
   <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -155,7 +142,6 @@ class User extends React.Component {
               <th className="text-center">Email</th>
               <th className="text-center">Role</th>
               <th className="text-center">Status</th>
-              <th className="text-center">update</th>
               <th className="text-center">Delete</th>
               <th className="text-center">info</th>
             </tr>
@@ -169,8 +155,6 @@ class User extends React.Component {
     </div>
   </div>
        </div>
-    
- 
      
      </div>
     

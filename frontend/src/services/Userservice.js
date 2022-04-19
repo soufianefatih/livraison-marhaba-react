@@ -33,3 +33,7 @@ export function getAllusers() {
 export function deleteUser(id) {
     return axios.delete(APP_URL + "users/delete/" + id);
   }
+
+  export function ConfirmStatusDelivery(id) {
+    return axios.get(APP_URL + "users/status/" + id);
+  }

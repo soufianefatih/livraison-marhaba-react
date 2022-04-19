@@ -187,7 +187,7 @@ async handleSubmit(event) {
       infocategory = (
 
             <div>
-                <h5 className='text-white p-2 bg-dark'> Category Name : {this.state.infoproducts.name}</h5>
+                <h5 className='text-white p-2 bg-secondary'> Category Name : {this.state.infoproducts.name}</h5>
 
             </div>
         )

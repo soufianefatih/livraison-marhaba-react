@@ -70,7 +70,7 @@ class Delivery extends React.Component {
 
              </td>
           <td className="text-center">
-            <div className=" btn btn-warning btn-sm" > <i class="fas fa-edit"></i> !confirm</div>
+            <div className=" btn btn-info btn-sm" > <i class="fas fa-check-circle"></i> !confirm</div>
           </td>
           
          

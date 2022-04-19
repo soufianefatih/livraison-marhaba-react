@@ -9,6 +9,8 @@ import Register from './components/controllers/Auth/Register';
 import Category from './components/controllers/category/Category';
 import User from './components/controllers/user/User';
 import Createuser from './components/controllers/user/Createuser';
+import Delivery from './components/controllers/user/Delivery';
+
 
 
 import Createcategory from './components/controllers/category/Createcategory';
@@ -30,6 +32,8 @@ function App() {
       <Route path="/dashboard/category/create" element={ checkLoginBeforeRenderComponent(<Createcategory/>)} />
       <Route path="/dashboard/user" element={ checkLoginBeforeRenderComponent(<User/>)} />
       <Route path="/dashboard/user/create" element={ checkLoginBeforeRenderComponent(<Createuser/>)} />
+      <Route path="/dashboard/user/delivery" element={ checkLoginBeforeRenderComponent(<Delivery/>)} />
+
 
 
 

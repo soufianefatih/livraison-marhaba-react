@@ -76,8 +76,13 @@ class Delivery extends React.Component {
           <div className="widget-heading">{user.role}</div>
 
              </td>
+
+
              <td className="text-center">
-          <div className="widget-heading">{user.status}</div>
+          <div className="widget-heading">
+
+          {user.status == 1 ?  <p className=" btn btn-success btn-sm" >confirme</p> : <p className=" btn btn-warning btn-sm" >pending</p> }
+          </div>
 
              </td>
           <td className="text-center">

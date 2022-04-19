@@ -22,6 +22,7 @@ class CardDash extends React.Component {
               <div className="media d-flex">
                 <div className="align-self-center">
                   <i className="icon-pencil primary font-large-2 float-left" />
+                  
                 </div>
                 <div className="media-body text-right">
                   <h3>278</h3>

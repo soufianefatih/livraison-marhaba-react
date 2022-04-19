@@ -197,14 +197,43 @@ async handleSubmit(event) {
     let infoproducts = "";
     if (!this.state.pandingproducts) {
       infoproducts = this.state.infoproducts.products.map(function (product) {
-            return <ul>
-                <li> products name {product.name}</li>
-                <li> products description {product.decsription}</li>
-                <li> products price {product.price}</li>
+            return  <section className="card" >
+            <figure>
+              <div className="img-overlay hot-home">
+                <img src="" alt="Trulli" />
+                <div className="overlay">
+                  <a href="#">view property</a>
+                </div>
+                <div className="cont">
+                  <div className="icons-img">
+                    <button>
+                      <i className="fas fa-heart" />
+                    </button>
+                    <button>
+                      <i className="fas fa-share" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <div className="card-content">
+              <h5>{product.name}</h5>
+              <p>  {product.decsription}</p>
 
-
-             
-            </ul>
+              {/* <button
+                onClick={async () => {
+                  await ThisClass.infoRoom(hotel.id);
+                  ThisClass.showModal();
+                }}
+                type="button"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg"
+                className="btn btn-sm btn-outline-danger"
+              >
+                View room
+              </button> */}
+            </div>
+          </section>
         })
 
     }
@@ -282,7 +311,11 @@ async handleSubmit(event) {
      {  updateForm}
      <div>
      {infocategory}
-     {infoproducts}
+     <div className="container">
+          <div className="cards">
+          {infoproducts}
+          </div>
+        </div>
      </div>
     
       </div>

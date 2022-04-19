@@ -160,8 +160,8 @@ async handleSubmit(event) {
         updateForm = (
            
             <div className='container '>
-            <div className=' card text-white bg-success 'style={{maxWidth: '100rem'}} >
-           <div className="card-header">Update Category</div>
+            <div className=' card text-white bg-muted 'style={{maxWidth: '100rem'}} >
+           <div className="card-header text-dark">Update Category</div>
            <div className="card-body">
            <div>
                          <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
@@ -207,11 +207,7 @@ async handleSubmit(event) {
 
             </div>
     </div>
-  
-  
-  
-          
-          
+
           )
             
         })

@@ -1,10 +1,9 @@
 import React from 'react';
-// import {  getAllproduct ,deleteproduct ,getproduct ,updateproduct} from './../../../services/ProductService';
-// import { getAllcategory } from './../../../services/Categoryservice';
+import { getAllcommand } from './../../../services/CommandService';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
-// import { handelCatchInAxios } from "../../../services/AxiosCatchService";
+import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
 
@@ -13,11 +12,25 @@ class Command extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    //   infoproduct: this.infoProduct(),
-    //   panding: true,
+      infocommand: this.infoComand(),
+      panding: true,
      
     };
   
+  }
+  async infoComand() {
+    try {
+      let res = await  getAllcommand(); // get axios promise
+      let data = res.data;
+      console.log("ALL command :", data);
+      // get all data from pomise
+      this.setState({ infocommand: data }); // Set data to state
+      this.setState({ panding: false }); // Change status panding for render data
+    } catch (e) {
+      console.error(e);
+      handelCatchInAxios(e);
+
+    }
   }
  
 

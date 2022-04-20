@@ -9,7 +9,7 @@ import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
 
-class Category extends React.Component {
+class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -316,4 +316,4 @@ async handleSubmit(event) {
   }
 }
 
-export default Category;
+export default Product;

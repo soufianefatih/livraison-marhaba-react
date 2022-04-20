@@ -93,6 +93,19 @@ class Command extends React.Component {
       });
     }
 
+    //  info client :::::::::::::::::::::::::::::::::::::::::::::
+    let infoclient = "";
+    if (!this.state.pandingclient) {
+
+        infoclient = (
+
+            <div>
+                <h5 className='text-white p-2 bg-info' style={{maxWidth: '17rem'}}> Category Name : {this.state.infoproducts.name}</h5>
+
+            </div>
+        )
+    }
+
    
 
 

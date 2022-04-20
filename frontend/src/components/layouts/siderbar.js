@@ -56,21 +56,21 @@ class Siderbar extends React.Component {
             <ul>
              
               <li>
-                <a  className="text-decoration-none" href="">
+                <a  className="text-decoration-none" href="/dashboard/user">
                   <i className="metismenu-icon">
                   </i>All Users
 
                 </a>
               </li>
               <li>
-                <a  className="text-decoration-none" href="">
+                <a  className="text-decoration-none" href="/dashboard/user/delivery">
                   <i className="metismenu-icon">
                   </i>All Delivery
 
                 </a>
               </li>
               <li>
-                <a  className="text-decoration-none" href="">
+                <a  className="text-decoration-none" href="/dashboard/user/create">
                   <i className="metismenu-icon">
                   </i> Create User
 
@@ -112,13 +112,13 @@ class Siderbar extends React.Component {
             <ul>
              
               <li>
-                <a  className="text-decoration-none" href="">
+                <a  className="text-decoration-none" href="/dashboard/product">
                   <i className="metismenu-icon">
                   </i>All  Products
                 </a>
               </li>
               <li>
-                <a  className="text-decoration-none" href="">
+                <a  className="text-decoration-none" href="/dashboard/product/create">
                   <i className="metismenu-icon">
                   </i>Create  Products
                 </a>

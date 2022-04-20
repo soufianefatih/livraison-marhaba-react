@@ -10,7 +10,7 @@ export function getAllproduct() {
   return axios.get(APP_URL + "product");
 }
 
-export function createProduct(name,decsription,price, image ) {
+export function createProduct(name,decsription,price, image ,category_id ) {
     console.log("getAllcategory");
   
     const formData = new FormData();
@@ -20,6 +20,8 @@ export function createProduct(name,decsription,price, image ) {
     formData.append("name", name);
     formData.append("decsription", decsription);
     formData.append("price", price);
+    formData.append("category_id", category_id);
+
 
 
   

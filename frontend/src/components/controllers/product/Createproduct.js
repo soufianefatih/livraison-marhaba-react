@@ -4,17 +4,19 @@ import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import Cards from './../../../components/layouts/cards';
+import { getAllcategory } from './../../../services/Categoryservice';
 
 
 class CreateProduct extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { name: '',decsription :'',price:'', image: '' };
+        this.state = { name: '',decsription :'',price:'', image: '',category_id :'',infocategory: this.infocategory(),pandingcategory:true };
 
         this.handleName = this.handleName.bind(this);
         this.handleDescription = this.handleDescription.bind(this);
         this.handlPrice = this.handlPrice.bind(this);
         this.handleImage = this.handleImage.bind(this);
+        this.handleCategory_id = this.handleCategory_id.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
         
@@ -33,6 +35,9 @@ class CreateProduct extends React.Component {
         console.log('event.target.files', event.target.files);
         this.setState({ image: event.target.files[0] });
     }
+    handleCategory_id(event) {
+        this.setState({ category_id: event.target.value });
+    }
 
     async handleSubmit(event) {
         event.preventDefault();
@@ -42,7 +47,7 @@ class CreateProduct extends React.Component {
 
         try {
 
-            let rescreate = await createProduct (this.state.name,this.state.decsription,this.state.price, this.state.image)
+            let rescreate = await createProduct (this.state.name,this.state.decsription,this.state.price, this.state.image,this.state.category_id)
 
             if (rescreate .status == 200) {
                 console.log('Done Req  : ');
@@ -56,7 +61,37 @@ class CreateProduct extends React.Component {
             handelCatchInAxios(error)
         }
     }
+    async infocategory() {
+        try {
+          let res = await  getAllcategory(); // get axios promise
+          let data = res.data;
+          console.log("ALL category :", data);
+          // get all data from pomise
+          this.setState({ infocategory: data }); // Set data to state
+          this.setState({ pandingcategory: false }); // Change status panding for render data
+        } catch (e) {
+          console.error(e);
+          handelCatchInAxios(e);
+    
+        }
+      }
+
+
+
     render() {
+
+   let selectcategory = '';
+   if (!this.state.pandingcategory) {
+    selectcategory = (
+        <select class="form-control form-select" value={this.state.category_id} onChange={this.handleCategory_id}  >
+        <option> Please select category</option>
+        {this.state.infocategory.map(function (category) {
+          return <option value={category.id} >{category.name}</option>;
+        })}
+      </select>
+    )  
+   }
+
         return (
 
            
@@ -112,7 +147,10 @@ class CreateProduct extends React.Component {
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputName1" class="form-label">Price</label>
-                        <input type="text" value={this.state.price} onChange={this.handlPrice} class="form-control" id="exampleInputName1" />
+                        <input type="number" value={this.state.price} onChange={this.handlPrice} class="form-control" id="exampleInputName1" />
+                    </div>
+                    <div class="mb-3">
+                           {selectcategory}
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputImage1" class="form-label">Image</label>

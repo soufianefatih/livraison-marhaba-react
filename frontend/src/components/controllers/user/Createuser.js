@@ -122,7 +122,7 @@ class Createuser extends React.Component {
                         <input type="text" value={this.state.password} onChange={this.handlePssword} class="form-control" id="exampleInputImage1" multiple="multiple" />
                     </div>
                     <div class="mb-3">
-                            <select for="exampleInputImage1" class="form-control" value={this.state.role} onChange={this.handleRole} required>
+                            <select for="exampleInputImage1" class="form-control form-select" value={this.state.role} onChange={this.handleRole} required>
                                 <option >Role</option>
 
                                 <option value='client'>Client</option>
@@ -130,7 +130,7 @@ class Createuser extends React.Component {
                             </select>
                     </div>
                     <div class="mb-3">
-                        <select for="exampleInputImage1" class="form-control" value={this.state.status} onChange={this.handleStatus} required>
+                        <select for="exampleInputImage1" class="form-control form-select" value={this.state.status} onChange={this.handleStatus} required>
                                 <option >Status</option>
 
                                 <option value='0'>0</option>

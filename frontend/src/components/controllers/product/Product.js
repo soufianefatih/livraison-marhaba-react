@@ -32,6 +32,7 @@ class Category extends React.Component {
 
     }
   }
+ 
 
   render() {
     // table product:::::::::::::::::::::::::::::::::::::::::

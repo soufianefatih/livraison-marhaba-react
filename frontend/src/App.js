@@ -11,10 +11,7 @@ import User from './components/controllers/user/User';
 import Createuser from './components/controllers/user/Createuser';
 import Delivery from './components/controllers/user/Delivery';
 import Product from './components/controllers/product/Product';
-
-
-
-
+import CreateProduct from './components/controllers/product/Createproduct';
 import Createcategory from './components/controllers/category/Createcategory';
 
 import Dashboard from './components/dashboard/dashboard';
@@ -36,6 +33,8 @@ function App() {
       <Route path="/dashboard/user/create" element={ checkLoginBeforeRenderComponent(<Createuser/>)} />
       <Route path="/dashboard/user/delivery" element={ checkLoginBeforeRenderComponent(<Delivery/>)} />
       <Route path="/dashboard/product" element={ checkLoginBeforeRenderComponent(<Product/>)} />
+      <Route path="/dashboard/product/create" element={ checkLoginBeforeRenderComponent(<CreateProduct/>)} />
+
 
 
 

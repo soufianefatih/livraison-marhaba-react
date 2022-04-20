@@ -137,4 +137,4 @@ class CreateProduct extends React.Component {
         );
     }
 }
-export default createcategory;
+export default CreateProduct;

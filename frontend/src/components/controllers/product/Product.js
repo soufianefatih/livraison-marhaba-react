@@ -1,5 +1,6 @@
 import React from 'react';
-import {  getAllproduct ,deleteproduct ,getproduct} from './../../../services/ProductService';
+import {  getAllproduct ,deleteproduct ,getproduct ,updateproduct} from './../../../services/ProductService';
+import { getAllcategory } from './../../../services/Categoryservice';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
@@ -15,9 +16,19 @@ class Category extends React.Component {
       infoproduct: this.infoProduct(),
       panding: true,
       infopdate:{},
-      pandingupdate:true
+      infocategory:{},
+      pandingupdate:true,
+      newname: null,
+      newdescription: null,
+      newname: null,
+      newprice: null,
+      newcategory_id: null,
     };
-  
+    this.handleName = this.handleName.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
+    this.handlPrice = this.handlPrice.bind(this);
+    this.handleCategory_id = this.handleCategory_id.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   async infoProduct() {
     try {
@@ -54,6 +65,9 @@ class Category extends React.Component {
       let res = await  getproduct(id); // get axios promise
       let data = res.data;
       console.log("product :", data);
+      let category = await getAllcategory();
+      this.setState({ infocategory: category.data });
+
       this.setState({ infopdate: data });
       this.setState({pandingupdate: false });
     
@@ -63,6 +77,50 @@ class Category extends React.Component {
    
   
   }
+
+  handleName(event) {
+    this.setState({ newname: event.target.value });
+}
+handleDescription(event) {
+    this.setState({ newdescription: event.target.value });
+}
+handlPrice(event) {
+    this.setState({ newprice: event.target.value });
+}
+
+
+handleCategory_id(event) {
+    this.setState({ newcategory_id: event.target.value });
+}
+async handleSubmit(event) {
+  event.preventDefault();
+
+  let name = this.state.newname ?? this.state. infopdate.name;
+  let decsription = this.state.newdescription ?? this.state. infopdate.decsription;
+  let price = this.state.newprice ?? this.state. infopdate.price;
+  let category_id = this.state.newcategory_id ?? this.state.infocategory.category_id;
+
+
+
+
+
+  console.log("A name was updating: " + name);
+
+  try {
+      let resupdate = await updateproduct(
+          this.state.infopdate.id,
+          name,decsription,price,category_id
+      );
+      console.log(resupdate);
+
+      if (resupdate.status == 200) {
+          window.location = "/dashboard/product";
+      }
+  } catch (error) {
+      console.log(error);
+      handelCatchInAxios(error);
+  }
+}
  
 
   
@@ -112,68 +170,58 @@ class Category extends React.Component {
       });
     }
 
-    // update category:::::::::::::::::::::::::::::::::::::::::
-//     let updateForm = "";
+    // update product :::::::::::::::::::::::::::::::::::::::::
+    let updateForm = "";
 
-//     if (!this.state.pandingupdate) {
-//         updateForm = (
+    if (!this.state.pandingupdate) {
+        updateForm = (
            
-//             <div className='container '>
-//             <div className=' card text-white bg-muted 'style={{maxWidth: '100rem'}} >
-//            <div className="card-header text-dark">Update Category</div>
-//            <div className="card-body">
-//            <div>
-//                          <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
-//                              <div class="mb-3">
-//                                  <label for="exampleInputName1" class="form-label">Name</label>
-//                                  <input type="text" value={this.state.newName ?? this.state.infopdate.name}  onChange={this.handleName}class="form-control" id="exampleInputName1" />
-//                              </div>
+            <div className='container '>
+            <div className=' card text-white bg-muted 'style={{maxWidth: '100rem'}} >
+           <div className="card-header text-dark">Update Product</div>
+           <div className="card-body">
+           <div>
+                         <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+                         <div class="mb-3">
+                                 <label for="exampleInputName1" class="form-label">Name</label>
+                                 <input type="text" value={this.state.newname ?? this.state.infopdate.name}  onChange={this.handleName}class="form-control" id="exampleInputName1" />
+                             </div>
                            
-//                              <button type="submit" class="btn btn-primary">Submit</button>
-//                          </form>
-//                      </div>
-//            </div>
-//          </div>
+                             <div class="mb-3">
+                                 <label for="exampleInputName1" class="form-label">Decsription</label>
+                                 <input type="text" value={this.state.newdescription ?? this.state.infopdate.decsription}  onChange={this.handleName}class="form-control" id="exampleInputName1" />
+                             </div>
+                             <div class="mb-3">
+                                 <label for="exampleInputName1" class="form-label">Price</label>
+                                 <input type="number" value={this.state.newprice ?? this.state.infopdate.price}  onChange={this.handleName}class="form-control" id="exampleInputName1" />
+                             </div>
+                             <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">
+              Category
+            </label>
+            <select
+              className="form-select"
+              value={this.state.newcategory_id}
+              onChange={this.handleCategory_id}
+            >
+              <option> Please select category</option>
+              {this.state. infocategory.map(function (category) {
+                return <option value={category.id}>{category.name}</option>;
+              })}
+            </select>
+          </div>
+                         
+                             <button type="submit" class="btn btn-primary">Submit</button>
+                         </form>
+                     </div>
+           </div>
+         </div>
          
-//          </div>
+         </div>
             
-//         );
-//     }
-// //  info category :::::::::::::::::::::::::::::::::::::::::::::
-//     let infocategory = "";
-//     if (!this.state.pandingcategory) {
+        );
+    }
 
-//       infocategory = (
-
-//             <div>
-//                 <h5 className='text-white p-2 bg-secondary' style={{maxWidth: '17rem'}}> Category Name : {this.state.infoproducts.name}</h5>
-
-//             </div>
-//         )
-//     }
-//     //  info products :::::::::::::::::::::::::::::::::::::::::::::
-
-//     let infoproducts = "";
-//     if (!this.state.pandingproducts) {
-//       infoproducts = this.state.infoproducts.products.map(function (product) {
-//         let src = "http://localhost:5500/" + product.image ;
-
-//             return  ( 
-//               <div className="card " style={{maxWidth: '20rem'}} >
-//               <img className="card-img-top" src={src} height={'200px'} alt="Card image cap" />
-//             <div className="card-body">
-//             <h5 className="card-title">{product.name}</h5>
-//            <p className="card-text">{product.decsription} </p>
-//            <p className="card-text">{product.price} $</p>
-
-//             </div>
-//     </div>
-
-//           )
-            
-//         })
-
-//     }
 
     return (
   <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -247,7 +295,7 @@ class Category extends React.Component {
     </div>
   </div>
        </div>
-     {/* {  updateForm} */}
+     {  updateForm}
      
      {/* {infocategory}
      <div className="card-deck d-flex justify-content-center mt-3 ">

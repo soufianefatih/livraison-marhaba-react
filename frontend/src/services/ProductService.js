@@ -33,3 +33,8 @@ export function createProduct(name,decsription,price, image ,category_id ) {
   export function deleteproduct(id) {
     return axios.delete(APP_URL + "product/delete/" + id);
   }
+
+
+  export function getproduct(id) {
+    return axios.get(APP_URL + "product/" + id);
+  }

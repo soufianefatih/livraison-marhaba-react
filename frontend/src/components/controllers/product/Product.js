@@ -1,5 +1,5 @@
 import React from 'react';
-import {  getAllproduct ,deleteproduct} from './../../../services/ProductService';
+import {  getAllproduct ,deleteproduct ,getproduct} from './../../../services/ProductService';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
@@ -46,6 +46,25 @@ class Category extends React.Component {
     }
 
   }
+
+  async editButton (id) {
+    try{
+  
+      let res = await  getproduct(id); // get axios promise
+      let data = res.data;
+      console.log("product :", data);
+      // this.setState({ infopdate: data });
+      // this.setState({pandingupdate: false });
+    
+    }catch (e) {
+      console.error(e);
+    }
+   
+  
+  }
+ 
+
+  
  
 
   render() {
@@ -79,13 +98,13 @@ class Category extends React.Component {
              <div className="widget-heading">{product.decsription}</div>
           </td>
           <td className="text-center">
-            <div className=" btn btn-warning btn-sm" > <i class="fas fa-edit"></i> update</div>
+            <div className=" btn btn-warning btn-sm"onClick={() => ThisClass.editButton(product.id)} > <i class="fas fa-edit"></i> update</div>
           </td>
           <td className="text-center">
             <div className=" btn btn-danger btn-sm" onClick={() => ThisClass.deleteButton(product.id)}> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
           </td>
           <td className="text-center">
-            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" >Details</button>
+            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm"  >Details</button>
           </td>
         </tr>
         );

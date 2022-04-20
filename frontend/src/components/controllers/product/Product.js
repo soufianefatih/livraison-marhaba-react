@@ -259,7 +259,7 @@ async handleSubmit(event) {
           </div>  </div>
                      </div>
       <CardDash/>
-      {/* :::::::::::::::::tables categorys::::::::::::::::::::: */}
+      {/* :::::::::::::::::tables product::::::::::::::::::::: */}
        <div className="row">
   <div className="col-md-12">
     <div className="main-card mb-3 card">

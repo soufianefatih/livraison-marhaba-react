@@ -14,7 +14,9 @@ class Command extends React.Component {
     this.state = {
       infocommand: this.infoComand(),
       panding: true,
-     
+      infocommanddetails: {},
+      pandingclient : true,
+    
     };
   
   }
@@ -40,8 +42,8 @@ class Command extends React.Component {
         let data = res.data;
         console.log(" command details  :", data);
         // get all data from pomise
-        // this.setState({ infocommand: data }); // Set data to state
-        // this.setState({ panding: false }); // Change status panding for render data
+        this.setState({ infocommanddetails: data }); // Set data to state
+        this.setState({ pandingclient: false }); // Change status panding for render data
       } catch (e) {
         console.error(e);
         handelCatchInAxios(e);
@@ -99,10 +101,20 @@ class Command extends React.Component {
 
         infoclient = (
 
-            <div>
-                <h5 className='text-white p-2 bg-info' style={{maxWidth: '17rem'}}> Category Name : {this.state.infoproducts.name}</h5>
+            // <div>
+            //     <h5 className='text-white p-2 bg-info' style={{maxWidth: '17rem'}}> client Name : {this.state.infocommanddetails.client.name}</h5>
 
-            </div>
+            // </div>
+  <div className="card" style={{width: '18rem'}}>
+  <img className="card-img-top" src="https://img.freepik.com/vecteurs-libre/concept-illustration-service-client_42694-25.jpg" alt="Card image cap" />
+  <ul className="list-group list-group-flush">
+  <li className="list-group-item text-info">client Info</li>
+
+    <li className="list-group-item"> {this.state.infocommanddetails.client.name}</li>
+    <li className="list-group-item"> {this.state.infocommanddetails.client.email}</li>
+  </ul>
+</div>
+
         )
     }
 
@@ -181,9 +193,9 @@ class Command extends React.Component {
        </div>
      {/* {  updateForm} */}
      
-     {/* {infocategory}
-     <div className="card-deck d-flex justify-content-center mt-3 ">
-    {infoproducts} */}
+     { infoclient}
+     {/* <div className="card-deck d-flex justify-content-center mt-3 ">
+    {infoproducts} */} 
     </div>
  
      

@@ -13,6 +13,8 @@ import Delivery from './components/controllers/user/Delivery';
 import Product from './components/controllers/product/Product';
 import CreateProduct from './components/controllers/product/Createproduct';
 import Createcategory from './components/controllers/category/Createcategory';
+import Command from './components/controllers/Command/Command';
+
 
 import Dashboard from './components/dashboard/dashboard';
 import { checkLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
@@ -34,6 +36,8 @@ function App() {
       <Route path="/dashboard/user/delivery" element={ checkLoginBeforeRenderComponent(<Delivery/>)} />
       <Route path="/dashboard/product" element={ checkLoginBeforeRenderComponent(<Product/>)} />
       <Route path="/dashboard/product/create" element={ checkLoginBeforeRenderComponent(<CreateProduct/>)} />
+      <Route path="/dashboard/command" element={ checkLoginBeforeRenderComponent(<Command/>)} />
+
 
 
 

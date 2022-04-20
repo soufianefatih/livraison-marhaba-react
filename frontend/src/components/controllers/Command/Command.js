@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllcommand } from './../../../services/CommandService';
+import { getAllcommand , getcommanddetails } from './../../../services/CommandService';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
@@ -31,6 +31,23 @@ class Command extends React.Component {
       handelCatchInAxios(e);
 
     }
+  }
+
+  async detailsCommand(id) {
+
+    try {
+        let res = await  getcommanddetails(id); // get axios promise
+        let data = res.data;
+        console.log(" command details  :", data);
+        // get all data from pomise
+        // this.setState({ infocommand: data }); // Set data to state
+        // this.setState({ panding: false }); // Change status panding for render data
+      } catch (e) {
+        console.error(e);
+        handelCatchInAxios(e);
+  
+      }
+
   }
  
 
@@ -69,7 +86,7 @@ class Command extends React.Component {
           </td>
         
           <td className="text-center">
-            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm"  >Details</button>
+            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" onClick={() => ThisClass.detailsCommand(command.id)} >Details</button>
           </td>
         </tr>
         );

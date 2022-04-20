@@ -29,3 +29,7 @@ export function createProduct(name,decsription,price, image ,category_id ) {
   
     return axios.post(APP_URL + "product/create", formData);
   }
+
+  export function deleteproduct(id) {
+    return axios.delete(APP_URL + "product/delete/" + id);
+  }

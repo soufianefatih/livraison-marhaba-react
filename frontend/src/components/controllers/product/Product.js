@@ -1,5 +1,5 @@
 import React from 'react';
-import {  getAllproduct } from './../../../services/ProductService';
+import {  getAllproduct ,deleteproduct} from './../../../services/ProductService';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
@@ -31,6 +31,20 @@ class Category extends React.Component {
       handelCatchInAxios(e);
 
     }
+  }
+  async deleteButton (id) {
+    try {
+      let res = await deleteproduct(id); // get axios promise
+      let data = res.data;
+      console.log("delete products :", data);
+      alert("category is deleted!");
+      window.location = "/dashboard/product";
+    } catch (e) {
+      console.error(e);
+      handelCatchInAxios(e);
+
+    }
+
   }
  
 
@@ -68,7 +82,7 @@ class Category extends React.Component {
             <div className=" btn btn-warning btn-sm" > <i class="fas fa-edit"></i> update</div>
           </td>
           <td className="text-center">
-            <div className=" btn btn-danger btn-sm"> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
+            <div className=" btn btn-danger btn-sm" onClick={() => ThisClass.deleteButton(product.id)}> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
           </td>
           <td className="text-center">
             <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" >Details</button>

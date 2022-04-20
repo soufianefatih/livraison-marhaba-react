@@ -187,7 +187,7 @@ async handleSubmit(event) {
       infocategory = (
 
             <div>
-                <h5 className='text-white p-2 bg-secondary' style={{maxWidth: '17rem'}}> Category Name : {this.state.infoproducts.name}</h5>
+                <h5 className='text-white p-2 bg-info' style={{maxWidth: '17rem'}}> Category Name : {this.state.infoproducts.name}</h5>
 
             </div>
         )

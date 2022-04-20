@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
-import { getAllusers , getuser ,deleteUser } from './../../../services/Userservice';
+import { getAllusers  ,deleteUser } from './../../../services/Userservice';
 import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
@@ -12,8 +12,7 @@ class User extends React.Component {
     this.state = {
       infouser: this.infoUsers(),
       panding: true,
-      infopdate :{},
-      pandingupdate: true,
+   
      
     };
  
@@ -25,11 +24,11 @@ class User extends React.Component {
       let data = res.data;
       console.log("ALL Users :", data);
       // get all data from pomise
-      this.setState({  infouser: data }); // Set data to state
+      this.setState({ infouser: data }); // Set data to state
       this.setState({ panding: false }); // Change status panding for render data
     } catch (e) {
       console.error(e);
-      handelCatchInAxios(e);
+      // handelCatchInAxios(e);
 
     }
   }
@@ -52,13 +51,12 @@ class User extends React.Component {
 
 
   render() {
-       // table category:::::::::::::::::::::::::::::::::::::::::
+      //  table users:::::::::::::::::::::::::::::::::::::::::
     let tableusers = "";
     if (!this.state.panding) {
       let ThisClass = this;
-      tableusers = this.state.infouser.map(function (user,index) {
+      tableusers = ThisClass.state.infouser.map(function (user,index) {
         return (
-          
           <tr  key={index}>
           <td className="text-center text-muted">{user.id}</td>
           <td>

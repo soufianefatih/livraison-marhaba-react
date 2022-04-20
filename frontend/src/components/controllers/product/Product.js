@@ -14,7 +14,8 @@ class Category extends React.Component {
     this.state = {
       infoproduct: this.infoProduct(),
       panding: true,
-    
+      infopdate:{},
+      pandingupdate:true
     };
   
   }
@@ -53,8 +54,8 @@ class Category extends React.Component {
       let res = await  getproduct(id); // get axios promise
       let data = res.data;
       console.log("product :", data);
-      // this.setState({ infopdate: data });
-      // this.setState({pandingupdate: false });
+      this.setState({ infopdate: data });
+      this.setState({pandingupdate: false });
     
     }catch (e) {
       console.error(e);

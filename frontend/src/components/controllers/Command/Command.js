@@ -38,48 +38,43 @@ class Command extends React.Component {
  
 
   render() {
-    // table product:::::::::::::::::::::::::::::::::::::::::
-    // let tableproduct = "";
-    // if (!this.state.panding) {
-    //   let ThisClass = this;
-    //   tableproduct = this.state.infoproduct.map(function (product,index) {
-    //     let src = "http://localhost:5500/" + product.image ;
-    //     return (
+    // table command:::::::::::::::::::::::::::::::::::::::::
+    let tablecommand = "";
+    if (!this.state.panding) {
+      let ThisClass = this;
+      tablecommand = this.state.infocommand.map(function (command,index) {
+        return (
           
-    //       <tr  key={index}>
-    //       <td className="text-center text-muted">{product.id}</td>
-    //       <td>
-    //         <div className="widget-content p-0">
-    //           <div className="widget-content-wrapper">
+          <tr  key={index}>
+          <td className="text-center text-muted">{command.id}</td>
+          <td>
+            <div className="widget-content p-0">
+              <div className="widget-content-wrapper">
                
-    //             <div className="widget-content-left flex2">
-    //               <div className="widget-heading">{product.name}</div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </td>
-    //       <td className="text-center">
-    //         <img width={60} className="" src={src} alt />
-    //          </td>
-    //          <td className="text-center">
-    //          <div className="widget-heading">{product.price}</div>
-    //       </td>
-    //       <td className="text-center">
-    //          <div className="widget-heading">{product.decsription}</div>
-    //       </td>
-    //       <td className="text-center">
-    //         <div className=" btn btn-warning btn-sm"onClick={() => ThisClass.editButton(product.id)} > <i class="fas fa-edit"></i> update</div>
-    //       </td>
-    //       <td className="text-center">
-    //         <div className=" btn btn-danger btn-sm" onClick={() => ThisClass.deleteButton(product.id)}> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
-    //       </td>
-    //       <td className="text-center">
-    //         <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm"  >Details</button>
-    //       </td>
-    //     </tr>
-    //     );
-    //   });
-    // }
+                <div className="widget-content-left flex2">
+                  <div className="widget-heading">{command.address}</div>
+                </div>
+              </div>
+            </div>
+          </td>
+        
+             <td className="text-center">
+             <div className="widget-heading">{command.phone}</div>
+          </td>
+          <td className="text-center">
+             <div className="widget-heading">{command.status}</div>
+          </td>
+          <td className="text-center">
+             <div className="widget-heading">{command.total}</div>
+          </td>
+        
+          <td className="text-center">
+            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm"  >Details</button>
+          </td>
+        </tr>
+        );
+      });
+    }
 
    
 
@@ -144,7 +139,7 @@ class Command extends React.Component {
             </tr>
           </thead>
           <tbody>
-          {/* { tableproduct} */}
+          { tablecommand}
 
           
           </tbody>

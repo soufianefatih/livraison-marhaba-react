@@ -24,50 +24,58 @@ class Category extends React.Component {
       let data = res.data;
       console.log("ALL products :", data);
       // get all data from pomise
-    //   this.setState({  infocategory: data }); // Set data to state
-    //   this.setState({ panding: false }); // Change status panding for render data
+      this.setState({ infoproduct: data }); // Set data to state
+      this.setState({ panding: false }); // Change status panding for render data
     } catch (e) {
       console.error(e);
+      handelCatchInAxios(e);
+
     }
   }
 
   render() {
-    // table category:::::::::::::::::::::::::::::::::::::::::
-    // let tablecategory = "";
-    // if (!this.state.panding) {
-    //   let ThisClass = this;
-    //   tablecategory = this.state.infocategory.map(function (category,index) {
-    //     let src = "http://localhost:5500/" + category.image ;
-    //     return (
+    // table product:::::::::::::::::::::::::::::::::::::::::
+    let tableproduct = "";
+    if (!this.state.panding) {
+      let ThisClass = this;
+      tableproduct = this.state.infoproduct.map(function (product,index) {
+        let src = "http://localhost:5500/" + product.image ;
+        return (
           
-    //       <tr  key={index}>
-    //       <td className="text-center text-muted">{category.id}</td>
-    //       <td>
-    //         <div className="widget-content p-0">
-    //           <div className="widget-content-wrapper">
+          <tr  key={index}>
+          <td className="text-center text-muted">{product.id}</td>
+          <td>
+            <div className="widget-content p-0">
+              <div className="widget-content-wrapper">
                
-    //             <div className="widget-content-left flex2">
-    //               <div className="widget-heading">{category.name}</div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </td>
-    //       <td className="text-center">
-    //         <img width={60} className="" src={src} alt />
-    //          </td>
-    //       <td className="text-center">
-    //         <div className=" btn btn-warning btn-sm" onClick={() => ThisClass.editButton(category.id)}> <i class="fas fa-edit"></i> update</div>
-    //       </td>
-    //       <td className="text-center">
-    //         <div className=" btn btn-danger btn-sm" onClick={() => ThisClass.deleteButton(category.id)}> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
-    //       </td>
-    //       <td className="text-center">
-    //         <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" onClick={() => ThisClass.detailsButton(category.id)}>Details</button>
-    //       </td>
-    //     </tr>
-    //     );
-    //   });
-    // }
+                <div className="widget-content-left flex2">
+                  <div className="widget-heading">{product.name}</div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td className="text-center">
+            <img width={60} className="" src={src} alt />
+             </td>
+             <td className="text-center">
+             <div className="widget-heading">{product.price}</div>
+          </td>
+          <td className="text-center">
+             <div className="widget-heading">{product.decsription}</div>
+          </td>
+          <td className="text-center">
+            <div className=" btn btn-warning btn-sm" > <i class="fas fa-edit"></i> update</div>
+          </td>
+          <td className="text-center">
+            <div className=" btn btn-danger btn-sm"> <i className="pe-7s-trash btn-icon-wrapper"></i> delete</div>
+          </td>
+          <td className="text-center">
+            <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" >Details</button>
+          </td>
+        </tr>
+        );
+      });
+    }
 
     // update category:::::::::::::::::::::::::::::::::::::::::
 //     let updateForm = "";
@@ -194,7 +202,7 @@ class Category extends React.Component {
             </tr>
           </thead>
           <tbody>
-          {/* { tablecategory} */}
+          { tableproduct}
 
           
           </tbody>

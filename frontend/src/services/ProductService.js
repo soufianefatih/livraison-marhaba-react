@@ -38,3 +38,7 @@ export function createProduct(name,decsription,price, image ,category_id ) {
   export function getproduct(id) {
     return axios.get(APP_URL + "product/" + id);
   }
+
+  export function updateproduct(id,name,decsription,price,category_id ) {
+    return axios.post(APP_URL + "product/update/" + id ,{ name: name, decsription:decsription ,price:price,category_id :category_id  });
+  }

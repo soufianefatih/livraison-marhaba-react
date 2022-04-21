@@ -19,7 +19,7 @@ const store = createStore(
 
 const persistor = persistStore(store);
 
-ReactDOM.render(
+
   
  
 ReactDOM.render(

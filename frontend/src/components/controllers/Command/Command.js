@@ -16,7 +16,8 @@ class Command extends React.Component {
       panding: true,
       infocommanddetails: {},
       pandingclient : true,
-    
+      pandingdelivery: true,
+      pandingproduct : true
     };
   
   }
@@ -44,6 +45,8 @@ class Command extends React.Component {
         // get all data from pomise
         this.setState({ infocommanddetails: data }); // Set data to state
         this.setState({ pandingclient: false }); // Change status panding for render data
+        this.setState({ pandingdelivery: false }); // Change status panding for render data
+        this.setState({ pandingproduct: false }); // Change status panding for render data
       } catch (e) {
         console.error(e);
         handelCatchInAxios(e);
@@ -101,12 +104,9 @@ class Command extends React.Component {
 
         infoclient = (
 
-            // <div>
-            //     <h5 className='text-white p-2 bg-info' style={{maxWidth: '17rem'}}> client Name : {this.state.infocommanddetails.client.name}</h5>
-
-            // </div>
-  <div className="card" style={{width: '18rem'}}>
-  <img className="card-img-top" src="https://img.freepik.com/vecteurs-libre/concept-illustration-service-client_42694-25.jpg" alt="Card image cap" />
+         
+  <div className="card" style={{maxWidth: '20rem'}}>
+  <img className="card-img-top" src="https://img.freepik.com/vecteurs-libre/concept-illustration-service-client_42694-25.jpg"  height={'200px'}  alt="Card image cap" />
   <ul className="list-group list-group-flush">
   <li className="list-group-item text-info">client Info</li>
 
@@ -117,6 +117,62 @@ class Command extends React.Component {
 
         )
     }
+ //  info delivery ::::::::::::::::::::::::::::::::::::::::::::: 
+ let infodelivery = "";
+ if (!this.state.pandingdelivery) {
+
+     infodelivery = (
+
+         
+<div className="card" style={{maxWidth: '20rem'}}>
+    
+<img className="card-img-top" src="https://cdn.dribbble.com/users/2417352/screenshots/16167656/media/21a47abf816f1f18558b1fd74f5214dd.png?compress=1&resize=400x300&vertical=top" height={'200px'} alt="Card image cap" />
+<ul className="list-group list-group-flush">
+<li className="list-group-item text-info">delivery Info</li>
+
+ <li className="list-group-item"> {this.state.infocommanddetails.delivery.name}</li>
+ <li className="list-group-item"> {this.state.infocommanddetails.delivery.email}</li>
+</ul>
+</div>
+
+     )
+ }
+
+ //  info products with command product :::::::::::::::::::::::::::::::::::::::::::::
+
+ let infoproducts = "";
+ if (!this.state.pandingproduct) {
+     
+   infoproducts = this.state.infocommanddetails.products.map(function (product) {
+    //  let src = "http://localhost:5500/" + product.image ;
+
+         return  ( 
+             
+           <div className="card " style={{maxWidth: '20rem'}} >
+           {/* <img className="card-img-top" src={src} height={'200px'} alt="Card image cap" /> */}
+        <div className="card-body">
+        <p className="card-text text-info">Product</p>
+
+         <h5 className="card-title">{product.name}</h5>
+        <p className="card-text">{product.decsription} </p>
+        <p className="card-text">{product.price} $</p>
+        <p className="card-text text-info">Command Product</p>
+
+        <p className="card-text"> quantity : {product.command_products.quantity} </p>
+        <p className="card-text"> price : {product.command_products.price} $ </p>
+        <p className="card-text"> total : {product.command_products.total} $ </p>
+
+
+
+
+         </div>
+ </div>
+
+       )
+         
+     })
+
+ }
 
    
 
@@ -191,11 +247,15 @@ class Command extends React.Component {
     </div>
   </div>
        </div>
-     {/* {  updateForm} */}
      
+       <div className="card-deck d-flex justify-content-center mt-3 ">
      { infoclient}
-     {/* <div className="card-deck d-flex justify-content-center mt-3 ">
-    {infoproducts} */} 
+     { infodelivery}
+</div>
+      <div className="card-deck d-flex justify-content-center mt-3 ">
+
+    {infoproducts} 
+    
     </div>
  
      
@@ -203,7 +263,7 @@ class Command extends React.Component {
     
       </div>
       </div>
-    //   </div>
+      </div>
 
 
 

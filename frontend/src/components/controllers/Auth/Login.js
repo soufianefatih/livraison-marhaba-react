@@ -1,6 +1,9 @@
+// import React from 'react';
 import React from 'react';
 import { login } from './../../../services/AuthService';
 import "./auth.css";
+import jwtDecode from "jwt-decode";
+import { useDispatch } from "react-redux";
 
 
 class Login extends React.Component {
@@ -39,7 +42,7 @@ class Login extends React.Component {
         window.localStorage.setItem("role", repLogin.data.user.role);
 
         window.localStorage.setItem("login", 1);
-        window.location = "/dashboard/category";
+        window.location = "/dashboard/user";
       }
     } catch (error) {
       window.localStorage.setItem("login", 0);
@@ -120,6 +123,10 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
 
 
+
+
+ 
+ 
+ export default Login;

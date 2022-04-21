@@ -24,13 +24,12 @@ export function checkIfNotLoginBeforeRenderComponent(component, ifNotLoginRedire
     }
 }
 
-// export function checkrole() {
-//     return window.localStorage.getItem("login") ?? 0;
-//      let role =window.localStorage.getItem("role");
+// export function checkrole(component) {
+//     let role = window.localStorage.getItem("role") ?? 0;
 
 //      if (role == admin) {
 //         return component;
 //     } else {
-//         return <Navigate to={ifNotLoginRedirectToUrl} />
+//         return <Navigate to={ifNotLoginRedirectToUrl="/"} />
 //     }
 // }

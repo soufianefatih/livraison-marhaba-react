@@ -28,9 +28,9 @@ class Category extends React.Component {
     try {
       let res = await getAllcategory(); // get axios promise
       let data = res.data;
-      console.log("ALL Catzgorys :", data);
+      console.log("ALL Categorys :", data);
       // get all data from pomise
-      this.setState({  infocategory: data }); // Set data to state
+      this.setState({infocategory: data }); // Set data to state
       this.setState({ panding: false }); // Change status panding for render data
     } catch (e) {
       console.error(e);

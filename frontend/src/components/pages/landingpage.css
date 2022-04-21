@@ -63,6 +63,7 @@ section:nth-child(even){
 .btnn:hover{
     background: var(--green);
     letter-spacing: .1rem;
+    color: #fff;
 }
 
 header{
@@ -802,4 +803,34 @@ header .icons #menu-bars{
     100% {
         transform: scale(1);
     }
+}
+
+.delivery{
+
+color: #27ae60;
+
+
+}
+
+
+
+header .icons i,
+.socialmedia i {
+    cursor: pointer;
+    margin-left: .5rem;
+    height:2.1rem;
+    line-height: 2.1rem;
+    width:2.1rem;
+    text-align: center;
+    font-size: 1rem;
+    color:var(--black);
+    border-radius: 50%;
+    background: #eee;
+}
+
+.socialmedia  i:hover,
+header .icons :hover{
+    color:#fff;
+    background: var(--green);
+    transform: rotate(360deg);
 }

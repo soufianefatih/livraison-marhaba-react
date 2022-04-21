@@ -18,9 +18,24 @@ class Home extends React.Component {
      <div className="shape shape-3 mt-2" />
  
           <span>our special dish</span>
-          <h3>Food Delivery</h3>
+          <h3>Food <spam className ='delivery'>Delivery</spam></h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
           <a href="#" className="btnn">order now</a>
+        <section className="socialmedia   media">
+  {/* Facebook */}
+  <a href> <i className="fab fa-facebook-f" /></a> 
+  {/* Twitter */}
+  <a href><i className="fab fa-twitter" /></a>
+  {/* Google */}
+  <a href><i className="fab fa-google" /></a>  
+  {/* Instagram */}
+  <a href> <i className="fab fa-instagram" /></a>
+  {/* Linkedin */}
+  <a href> <i className="fab fa-linkedin-in" /></a>
+  {/* Github */}
+  <a href>    <i className="fab fa-github" /> </a>
+</section>
+
     
   <div className="shape shape-7 mt-3" />
  
@@ -41,6 +56,7 @@ class Home extends React.Component {
       </div>
      
     </div>
+    
     <div className="swiper-pagination" />
   </div>
 </section>

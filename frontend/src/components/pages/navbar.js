@@ -8,11 +8,11 @@ class Navbar extends React.Component {
   <a href="#" className="logo"><i className="fas fa-utensils" /> Food Delivry.</a>
   <nav className="navbar">
     <a className="active" href="#home">home</a>
-    <a href="#dishes">dishes</a>
-    <a href="#about">about</a>
+    <a href="#dishes">Category</a>
     <a href="#menu">menu</a>
-    <a href="#review">review</a>
-    <a href="#order">order</a>
+    <a href="#about">about</a>
+    <a href="/login">login</a>
+    <a href="/register">register</a>
   </nav>
   <div className="icons">
     <i className="fas fa-bars" id="menu-bars" />

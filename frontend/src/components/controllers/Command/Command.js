@@ -87,7 +87,7 @@ class Command extends React.Component {
              <div className="widget-heading"> {command.status == 1 ?  <p className=" btn btn-primary btn-sm" > <i class="fas fa-check-circle"></i> In production</p> : command.status == 2 ?  <p className=" btn btn-info btn-sm" > <i class="fas fa-motorcycle"></i> In livraison</p> :command.status == 3 ?  <p className=" btn btn-success btn-sm" > <i class="far fa-thumbs-up"></i> delevred</p>: command.status == 4 ?  <p className=" btn btn-danger btn-sm" > <i class="fas fa-ban"></i> Canceled</p>: <p className=" btn btn-warning btn-sm" > <i class="far fa-pause-circle"></i> new</p>}</div>
           </td>
           <td className="text-center">
-             <div className="widget-heading">{command.total}</div>
+             <div className="widget-heading">{command.total} $</div>
           </td>
         
           <td className="text-center">

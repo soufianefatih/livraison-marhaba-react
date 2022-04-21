@@ -7,6 +7,8 @@ class Navbar extends React.Component {
         <div>
 <div className="app-header header-shadow">
   <div className="app-header__logo">
+    {/* <a href="#" className="logo"><i className="fas fa-utensils" /> Food Delivry.</a> */}
+
     <div className="logo-src" />
     <div className="header__pane ml-auto">
       <div>

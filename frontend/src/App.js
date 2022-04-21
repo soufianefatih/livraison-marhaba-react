@@ -4,6 +4,8 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Landingpage from './components/pages/landingpage';
+import Categorypage from './components/pages/category';
+
 import Login from './components/controllers/Auth/Login';
 import Register from './components/controllers/Auth/Register';
 import Category from './components/controllers/category/Category';
@@ -46,6 +48,8 @@ function App() {
 
 
         <Route path="/" element={(<Landingpage />)} />
+        <Route path="/category" element={(<Categorypage />)} />
+
         <Route path="/dashboard" element={(<Dashboard/>)} />
 
       </Routes>

@@ -35,7 +35,7 @@ const Login = () => {
       (async () => {
         
         console.log(response.data.user)
-        // await dispatch(loginAction());
+        await dispatch(loginAction());
         // await dispatch(setRoleAction(response.data.token.role));
         // await dispatch(setIdAction(response.data.token.id));
         window.localStorage.setItem("token", response.data.token);

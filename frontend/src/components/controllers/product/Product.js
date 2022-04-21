@@ -9,7 +9,7 @@ import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 
 
-class Category extends React.Component {
+class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -259,7 +259,7 @@ async handleSubmit(event) {
           </div>  </div>
                      </div>
       <CardDash/>
-      {/* :::::::::::::::::tables categorys::::::::::::::::::::: */}
+      {/* :::::::::::::::::tables product::::::::::::::::::::: */}
        <div className="row">
   <div className="col-md-12">
     <div className="main-card mb-3 card">
@@ -316,4 +316,4 @@ async handleSubmit(event) {
   }
 }
 
-export default Category;
+export default Product;

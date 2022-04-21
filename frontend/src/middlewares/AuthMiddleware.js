@@ -23,3 +23,14 @@ export function checkIfNotLoginBeforeRenderComponent(component, ifNotLoginRedire
         return <Navigate to={ifNotLoginRedirectToUrl} />
     }
 }
+
+// export function checkrole() {
+//     return window.localStorage.getItem("login") ?? 0;
+//      let role =window.localStorage.getItem("role");
+
+//      if (role == admin) {
+//         return component;
+//     } else {
+//         return <Navigate to={ifNotLoginRedirectToUrl} />
+//     }
+// }

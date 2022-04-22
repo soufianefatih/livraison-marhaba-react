@@ -258,39 +258,42 @@ header .icons #menu-bars{
     font-size: 1.5rem;
 }
 
-.about .row{
+
+.about .rowo{
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     gap:1.5rem;
     align-items: center;
+    
 }
 
-.about .row .image{
+.about .rowo .image{
     flex:1 1 45rem;
 }
 
-.about .row .image img{ 
+.about .rowo .image img{ 
     width: 100%;
 }
 
-.about .row .content{
+.about .rowo .content{
     flex:1 1 45rem;
 }
 
-.about .row .content h3{
+.about .rowo .content h3{
     color:var(--black);
     font-size: 4rem;
     padding:.5rem 0;
 }
 
-.about .row .content p{
+.about .rowo .content p{
     color:var(--light-color);
     font-size: 1.5rem;
     padding:.5rem 0;
     line-height: 2;
 }
 
-.about .row .content .icons-container{
+.about .rowo.content .icons-container{
     display: flex;
     gap:1rem;
     flex-wrap: wrap;
@@ -298,7 +301,7 @@ header .icons #menu-bars{
     margin-top: .5rem;
 }
 
-.about .row .content .icons-container .icons{
+.about .rowo .content .icons-container .icons{
     background:#eee;
     border-radius: .5rem;
     border:.1rem solid rgba(0,0,0,.2);
@@ -310,12 +313,12 @@ header .icons #menu-bars{
     padding:1.5rem 1rem;
 }
 
-.about .row .content .icons-container .icons i{
+.about .rowo .content .icons-container .icons i{
     font-size: 2.5rem;
     color:var(--green);
 }
 
-.about .row .content .icons-container .icons span{
+.about .rowo .content .icons-container .icons span{
     font-size: 1.5rem;
     color:var(--black);
 }

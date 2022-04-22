@@ -1,6 +1,6 @@
 import React from "react";
 import "./landingpage.css";
-import { isLogin } from './../../middlewares/AuthMiddleware';
+import { isLogin ,checkLoginRoleClient,checkLoginBeforeRenderComponent} from './../../middlewares/AuthMiddleware';
 
 
 class Navbar extends React.Component {
@@ -13,7 +13,7 @@ class Navbar extends React.Component {
         <a href="/login">login</a>
       <a href="/register">register</a>
       </div> 
-    } else {
+    } else{
       button = 
       <div>
       <a href="/dashboard/category">Dashboard</a>

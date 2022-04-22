@@ -1,50 +1,76 @@
 import React from "react";
 import "./landingpage.css";
-import logo  from './../../../src/components/images/logo.jpg';
+import Navbar  from './navbar';
 
 
 
 class Category extends React.Component {
   render() {
     return (
- 
-  <section className="dishes" id="dishes">
-  <h3 className="sub-heading"> our dishes </h3>
-  <h1 className="heading"> popular dishes </h1>
+        <div className= "landingpage">
+<Navbar/>
+  <section className="dishes mt-2" id="dishes">
+  <h3 className="sub-heading mt-5"> our Category </h3>
+  <h1 className="heading"> popular category </h1>
   <div className="box-container">
-    <div className="box">
-      <a href="#" className="fas fa-heart" />
+   
+    <div className="card box " style={{maxWidth: '20rem'}} >
+    <a href="#" className="fas fa-heart" />
       <a href="#" className="fas fa-eye" />
-      <img src="https://www.francine.com/media/cache/recipe_big/uploads/media/recipe/0001/05/pizza-4-saisons.jpeg.webp" alt />
-      <h3>tasty food</h3>
-      <div className="stars">
+              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'150px'} alt="Card image cap" />
+            <div className="card-body">
+            <h3 className="card-title">ggggg</h3>
+            <div className="stars">
         <i className="fas fa-star" />
         <i className="fas fa-star" />
         <i className="fas fa-star" />
         <i className="fas fa-star" />
         <i className="fas fa-star-half-alt" />
       </div>
-      <span>$15.99</span>
-      <a href="#" className="btn">add to cart</a>
+      <a href="#" className="btnn">view All Product</a>
+
+
+            </div>
     </div>
-    <div className="box">
-      <a href="#" className="fas fa-heart" />
+    <div className="card box " style={{maxWidth: '20rem'}} >
+    <a href="#" className="fas fa-heart" />
       <a href="#" className="fas fa-eye" />
-      <img src="https://www.francine.com/media/cache/recipe_big/uploads/media/recipe/0001/05/pizza-4-saisons.jpeg.webp" alt />
-      <h3>tasty food</h3>
-      <div className="stars">
+              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'180px'} alt="Card image cap" />
+            <div className="card-body">
+            <h3 className="card-title">ggggg</h3>
+            <div className="stars">
         <i className="fas fa-star" />
         <i className="fas fa-star" />
         <i className="fas fa-star" />
         <i className="fas fa-star" />
         <i className="fas fa-star-half-alt" />
       </div>
-      <span>$15.99</span>
-      <a href="#" className="btn">add to cart</a>
+      <a href="#" className="btnn">add to cart</a>
+
+
+            </div>
+    </div>
+    <div className="card box " style={{maxWidth: '20rem'}} >
+    <a href="#" className="fas fa-heart" />
+      <a href="#" className="fas fa-eye" />
+              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'180px'} alt="Card image cap" />
+            <div className="card-body">
+            <h3 className="card-title">ggggg</h3>
+            <div className="stars">
+        <i className="fas fa-star" />
+        <i className="fas fa-star" />
+        <i className="fas fa-star" />
+        <i className="fas fa-star" />
+        <i className="fas fa-star-half-alt" />
+      </div>
+      <a href="#" className="btnn">add to cart</a>
+
+
+            </div>
     </div>
   </div>
 </section>
-
+</div>
 
     );
   }

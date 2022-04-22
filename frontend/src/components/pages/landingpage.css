@@ -278,27 +278,32 @@ header .icons #menu-bars{
 
 .about .rowo .content{
     flex:1 1 45rem;
+
 }
 
 .about .rowo .content h3{
     color:var(--black);
-    font-size: 4rem;
+    font-size: 2rem;
     padding:.5rem 0;
+    font-weight: bold;
 }
 
 .about .rowo .content p{
     color:var(--light-color);
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding:.5rem 0;
     line-height: 2;
+  
 }
 
 .about .rowo.content .icons-container{
     display: flex;
+    justify-content: center;
     gap:1rem;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     padding:1rem 0;
     margin-top: .5rem;
+   
 }
 
 .about .rowo .content .icons-container .icons{
@@ -311,16 +316,21 @@ header .icons #menu-bars{
     gap:1rem;
     flex:1 1 17rem;
     padding:1.5rem 1rem;
+    width: 15rem;
 }
 
 .about .rowo .content .icons-container .icons i{
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     color:var(--green);
 }
 
 .about .rowo .content .icons-container .icons span{
-    font-size: 1.5rem;
+    font-size: 1rem;
     color:var(--black);
+}
+.icons-container{
+    display: flex;
+    gap: 0.5rem;
 }
 
 .menu .box-container{

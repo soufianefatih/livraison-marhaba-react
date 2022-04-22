@@ -1,14 +1,17 @@
 import React from "react";
 import "./landingpage.css";
-import logo  from './../../../src/components/images/logo.jpg';
+import Navbar from "./navbar.js";
 
 
 
 class About extends React.Component {
   render() {
     return (
-     <section className="about" id="about">
-  <h3 className="sub-heading"> about us </h3>
+        <div className= "landingpage mt-5">
+        <Navbar/>
+
+     <section className="about mt-5 " id="about">
+  <h3 className="sub-heading mt-5 "> about us </h3>
   <h1 className="heading"> why choose us? </h1>
   <div className="rowo">
     <div className="image">
@@ -32,11 +35,11 @@ class About extends React.Component {
           <span>24/7 service</span>
         </div>
       </div>
-      <a href="#" className="btn">learn more</a>
+      <a href="#" className="btnn">learn more</a>
     </div>
   </div>
 </section>
-
+</div>
 
 
     );

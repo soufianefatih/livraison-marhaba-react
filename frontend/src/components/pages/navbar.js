@@ -10,7 +10,7 @@ class Navbar extends React.Component {
     <a className="active" href="/">home</a>
     <a href="/category">Category</a>
     <a href="#menu">menu</a>
-    <a href="#about">about</a>
+    <a href="/about">about</a>
     <a href="/login">login</a>
     <a href="/register">register</a>
   </nav>

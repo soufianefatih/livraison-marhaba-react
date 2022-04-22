@@ -87,7 +87,48 @@ class Category extends React.Component {
         );
       });
     }
+  //  info products :::::::::::::::::::::::::::::::::::::::::::::
 
+  let infoproducts = "";
+  if (!this.state.pandingproducts) {
+    infoproducts = this.state.infoproducts.products.map(function (product) {
+      let src = "http://localhost:5500/" + product.image ;
+
+          return  ( 
+            <div className="card box " style={{maxWidth: '24rem'}} >
+    <div className="image">
+        <img className="card-img-top p-3" src={src} height={'150px'} alt="Card image cap" />
+       
+        <a href="#" className="fas fa-heart" />
+      </div>
+           
+                    <div className="card-body">
+                    <div className="content">
+        <div className="stars">
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star-half-alt" />
+        </div>
+        <h3>{product.name}</h3>
+        <p>{product.decsription}.</p>
+        <a href="#" className="btnn">add to cart</a>
+        <span className="price">$ {product.price}</span>
+      </div>
+      
+               
+              </div>
+              
+        
+        
+                    </div>
+
+        )
+          
+      })
+
+  }
 
 
     
@@ -112,34 +153,7 @@ class Category extends React.Component {
   <div className="box-container">
    
   
-    <div className="card box " style={{maxWidth: '24rem'}} >
-    <div className="image">
-        <img className="card-img-top p-3" src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/high-protein-dinners-slow-cooker-meatballs-image-5a04d02.jpg?quality=90&resize=500,454" height={'150px'} alt="Card image cap" />
-       
-        <a href="#" className="fas fa-heart" />
-      </div>
-           
-                    <div className="card-body">
-                    <div className="content">
-        <div className="stars">
-          <i className="fas fa-star" />
-          <i className="fas fa-star" />
-          <i className="fas fa-star" />
-          <i className="fas fa-star" />
-          <i className="fas fa-star-half-alt" />
-        </div>
-        <h3>delicious food</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-        <a href="#" className="btnn">add to cart</a>
-        <span className="price">$12.99</span>
-      </div>
-      
-               
-              </div>
-              
-        
-        
-                    </div>
+              {infoproducts}
             </div>
    
  

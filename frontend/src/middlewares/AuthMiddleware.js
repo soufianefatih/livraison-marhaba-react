@@ -4,10 +4,10 @@ export function isLogin() {
     return window.localStorage.getItem("login") ?? 0;
 }
 
-export function checkLoginBeforeRenderComponent(component, ifNotLoginRedirectToUrl = "/login") {
+export function checkLoginBeforeRenderComponent(component,role, ifNotLoginRedirectToUrl = "/login") {
     let login = window.localStorage.getItem("login") ?? 0;
 
-    if (login == 1) {
+    if (login == 1 && role == 'admin') {
         return component;
     } else {
         return <Navigate to={ifNotLoginRedirectToUrl} />

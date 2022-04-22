@@ -8,15 +8,18 @@ class Navbar extends React.Component {
 
     let button = '';
     if (!isLogin()) {
-      button =<p>
+      button =<div>
 
         <a href="/login">login</a>
       <a href="/register">register</a>
-      </p> 
+      </div> 
     } else {
       button = 
+      <div>
       <a href="/dashboard/category">Dashboard</a>
-        
+      <a href="">Logout</a>
+
+        </div>
       
     }
 

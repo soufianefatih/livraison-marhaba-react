@@ -321,8 +321,10 @@ header .icons #menu-bars{
 }
 
 .menu .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap:1.5rem;
 }
 
@@ -334,9 +336,9 @@ header .icons #menu-bars{
 }
 
 .menu .box-container .box .image{
-    height: 25rem;
+    height: 18rem;
     width: 100%;
-    padding:1.5rem;
+    /* padding:1.5rem; */
     overflow: hidden;
     position: relative;
 }
@@ -350,15 +352,16 @@ header .icons #menu-bars{
 
 .menu .box-container .box .image .fa-heart{
     position: absolute;
-    top:2.5rem; right: 2.5rem;
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
+    top: 2.5rem;
+    right: 2.5rem;
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.7rem;
     background: #fff;
     border-radius: 50%;
-    color:var(--black);
+    color: var(--black);
 }
 
 .menu .box-container .box .image .fa-heart:hover{
@@ -367,8 +370,8 @@ header .icons #menu-bars{
 }
 
 .menu .box-container .box .content{
-    padding:2rem;
-    padding-top: 0;
+    /* padding:2rem; */
+    /* padding-top: 0; */
 }
 
 .menu .box-container .box .content .stars{
@@ -382,20 +385,20 @@ header .icons #menu-bars{
 
 .menu .box-container .box .content h3{
     color:var(--black);
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .menu .box-container .box .content p{
     color:var(--light-color);
-    font-size: 1.6rem;
+    font-size: 0.8rem;
     padding:.5rem 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .menu .box-container .box .content .price{
     color:var(--green);
     margin-left: 1rem;
-    font-size: 2.5rem;
+    font-size: 1.3rem;
 }
 
 .review .slide{

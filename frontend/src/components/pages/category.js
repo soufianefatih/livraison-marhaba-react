@@ -1,12 +1,68 @@
 import React from "react";
 import "./landingpage.css";
 import Navbar  from './navbar';
-import {  getAllcategory} from './../../../src/services/Categoryservice';
+import {getAllcategory} from './../../../src/services/Categoryservice';
 
 
 
 class Category extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          infocategory: this.infoCategory(),
+          panding: true,
+        }
+        }
+
+  async infoCategory() {
+            try {
+              let res = await getAllcategory(); // get axios promise
+              let data = res.data;
+              console.log("ALL Categorys :", data);
+              // get all data from pomise
+              this.setState({infocategory: data }); // Set data to state
+              this.setState({ panding: false }); // Change status panding for render data
+            } catch (e) {
+              console.error(e);
+            }
+          }
+
+
+
   render() {
+       // info  category:::::::::::::::::::::::::::::::::::::::::
+    let category = "";
+    if (!this.state.panding) {
+    //   let ThisClass = this;
+      category = this.state.infocategory.map(function (category,index) {
+        let src = "http://localhost:5500/" + category.image ;
+        return (
+            <div className="card box " style={{maxWidth: '20rem'}} >
+            <a href="#" className="fas fa-heart" />
+              <a href="#" className="fas fa-eye" />
+                      <img className="card-img-top p-3" src={src} height={'150px'} alt="Card image cap" />
+                    <div className="card-body">
+                    <h3 className="card-title">{category.name}</h3>
+                    <div className="stars">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star-half-alt" />
+              </div>
+              <a href="#" className="btnn">view All Product</a>
+        
+        
+                    </div>
+            </div>
+        
+        );
+      });
+    }
+
+
+
+    
     return (
         <div className= "landingpage">
 <Navbar/>
@@ -15,96 +71,7 @@ class Category extends React.Component {
   <h1 className="heading"> popular category </h1>
   <div className="box-container">
    
-    <div className="card box " style={{maxWidth: '20rem'}} >
-    <a href="#" className="fas fa-heart" />
-      <a href="#" className="fas fa-eye" />
-              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'150px'} alt="Card image cap" />
-            <div className="card-body">
-            <h3 className="card-title">ggggg</h3>
-            <div className="stars">
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star-half-alt" />
-      </div>
-      <a href="#" className="btnn">view All Product</a>
-
-
-            </div>
-    </div>
-    <div className="card box " style={{maxWidth: '20rem'}} >
-    <a href="#" className="fas fa-heart" />
-      <a href="#" className="fas fa-eye" />
-              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'180px'} alt="Card image cap" />
-            <div className="card-body">
-            <h3 className="card-title">ggggg</h3>
-            <div className="stars">
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star-half-alt" />
-      </div>
-      <a href="#" className="btnn">add to cart</a>
-
-
-            </div>
-    </div>
-    <div className="card box " style={{maxWidth: '20rem'}} >
-    <a href="#" className="fas fa-heart" />
-      <a href="#" className="fas fa-eye" />
-              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'180px'} alt="Card image cap" />
-            <div className="card-body">
-            <h3 className="card-title">ggggg</h3>
-            <div className="stars">
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star-half-alt" />
-      </div>
-      <a href="#" className="btnn">add to cart</a>
-
-
-            </div>
-    </div>
-    <div className="card box " style={{maxWidth: '20rem'}} >
-    <a href="#" className="fas fa-heart" />
-      <a href="#" className="fas fa-eye" />
-              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'180px'} alt="Card image cap" />
-            <div className="card-body">
-            <h3 className="card-title">ggggg</h3>
-            <div className="stars">
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star-half-alt" />
-      </div>
-      <a href="#" className="btnn">add to cart</a>
-
-
-            </div>
-    </div>
-    <div className="card box " style={{maxWidth: '20rem'}} >
-    <a href="#" className="fas fa-heart" />
-      <a href="#" className="fas fa-eye" />
-              <img className="card-img-top p-3" src="https://miro.medium.com/max/1400/1*KKL94ILBNpmH1RKLgsCRiw.png" height={'180px'} alt="Card image cap" />
-            <div className="card-body">
-            <h3 className="card-title">ggggg</h3>
-            <div className="stars">
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star" />
-        <i className="fas fa-star-half-alt" />
-      </div>
-      <a href="#" className="btnn">add to cart</a>
-
-
-            </div>
-    </div>
+   {category}
   </div>
 </section>
 </div>

@@ -15,6 +15,8 @@ import Delivery from './components/controllers/user/Delivery';
 import Product from './components/controllers/product/Product';
 import CreateProduct from './components/controllers/product/Createproduct';
 import Createcategory from './components/controllers/category/Createcategory';
+import Commanddelivery from './components/controllers/delivery/DeliveryCommand';
+
 
 import Command from './components/controllers/Command/Command';
 
@@ -22,6 +24,7 @@ import Command from './components/controllers/Command/Command';
 import Dashboard from './components/dashboard/dashboard';
 import { checkLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
 import { checkIfNotLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
+import{checkLoginRoleDelivery} from './middlewares/AuthMiddleware'
 
 
 
@@ -40,6 +43,8 @@ function App() {
       <Route path="/dashboard/product" element={ checkLoginBeforeRenderComponent(<Product/>)} />
       <Route path="/dashboard/product/create" element={ checkLoginBeforeRenderComponent(<CreateProduct/>)} />
       <Route path="/dashboard/command" element={ checkLoginBeforeRenderComponent(<Command/>)} />
+      <Route path="/dashboard/delivery" element={checkLoginRoleDelivery(<Commanddelivery/>)} />
+
 
 
 

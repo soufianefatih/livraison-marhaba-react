@@ -12,3 +12,9 @@ export function getAllcommand() {
 export function getcommanddetails(id) {
     return axios.get(APP_URL + "command/commandproducts/" + id);
   }
+
+
+  export function confirmDeliveryCommand(id) {
+    return axios.get(APP_URL + "command/" + command_id +"delivery/" + id);
+  }
+

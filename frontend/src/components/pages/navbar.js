@@ -1,8 +1,30 @@
 import React from "react";
 import "./landingpage.css";
+import { isLogin } from './../../middlewares/AuthMiddleware';
+
 
 class Navbar extends React.Component {
   render() {
+
+    let button = '';
+    if (!isLogin()) {
+      button =<p>
+
+        <a href="/login">login</a>
+      <a href="/register">register</a>
+      </p> 
+    } else {
+      button = 
+      <a href="/dashboard/category">Dashboard</a>
+        
+      
+    }
+
+
+
+
+
+
     return (
      <header>
   <a href="#" className="logo"><i className="fas fa-utensils" /> Food Delivry.</a>
@@ -11,8 +33,7 @@ class Navbar extends React.Component {
     <a href="/category">Category</a>
     <a href="#menu">menu</a>
     <a href="/about">about</a>
-    <a href="/login">login</a>
-    <a href="/register">register</a>
+       {button}
   </nav>
   <div className="icons">
     <i className="fas fa-bars" id="menu-bars" />

@@ -1,56 +1,67 @@
-import React from 'react';
-import { login } from './../../../services/AuthService';
+import React, {useState}from 'react';
+import axios from 'axios';
 import "./auth.css";
+import jwtDecode from "jwt-decode";
+import { useDispatch } from "react-redux";
+import { loginAction , setRoleAction , setIdAction } from './../../../Action/AuthAction';
+const Login = () => {
 
+ const [data , setData] = useState({
+  email : "",
+  password : ""
+});
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { email: '', password: '' };
+  const [submitted, setSubmitted] = useState(false);
 
-    this.handleEmail = this.handleEmail.bind(this);
-    this.handlePassword = this.handlePassword.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const handleEmail = (e) => {
+    setData({ ...data, email: e.target.value });
+  };
+  const dispatch = useDispatch();
+  const APP_URL = "http://localhost:5500/api/marhaba/";
+  const login =(email, password)=> {
+   return axios.post(APP_URL + 'login', {
+     email: email,
+     password: password,
+   });
+ }
 
-  handleEmail(event) {
-    this.setState({ email: event.target.value });
-  }
+  const handlePassword = (e) => {
+    setData({ ...data,password: e.target.value });
+  };
 
-  handlePassword(event) {
-    this.setState({ password: event.target.value });
-  }
-
-  async handleSubmit(event) {
-    event.preventDefault();
-
-    console.log('A email was submitted: ' + this.state.email);
-    console.log('A password was submitted: ' + this.state.password);
-
-    try {
-      let repLogin = await login(this.state.email, this.state.password)
-      console.log(repLogin);
-
-      if (repLogin.status == 200) {
-        window.localStorage.setItem("token", repLogin.data.token);
-        window.localStorage.setItem("id", repLogin.data.user.id);
-        window.localStorage.setItem("name", repLogin.data.user.name);
-        window.localStorage.setItem("email", repLogin.data.user.email);
-        window.localStorage.setItem("role", repLogin.data.user.role);
-
+  const handleSubmit =()=> {
+    login( data.email, data.password).then((response) => {
+     
+      (async () => {
+        
+        console.log(response.data.user)
+        await dispatch(loginAction());
+        // await dispatch(setRoleAction(response.data.token.role));
+        // await dispatch(setIdAction(response.data.token.id));
+        window.localStorage.setItem("token", response.data.token);
+        window.localStorage.setItem("id", response.data.user.id);
+        window.localStorage.setItem("name", response.data.user.name);
+        window.localStorage.setItem("email", response.data.user.email);
+        window.localStorage.setItem("role", response.data.user.role);
         window.localStorage.setItem("login", 1);
         window.location = "/dashboard/category";
-      }
-    } catch (error) {
-      window.localStorage.setItem("login", 0);
-      window.location = "/register";
-    }
-  }
-
-  render() {
-    return (
-
+      })()
+    });
+    setSubmitted(true);
+  };
   
+
+
+
+
+
+ return ( 
+  
+
+
+
+
+
 
 <div className="login-fg">
   <div className="container-fluid">
@@ -78,13 +89,18 @@ class Login extends React.Component {
             <span>Or</span>
           </div>
           <div className="form-container">
-            <form onSubmit={this.handleSubmit}>
+            <form  onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}>
               <div className="form-group form-fg">
-                <input type="email" name="email" className="input-text" placeholder="Email Address" value={this.state.email} onChange={this.handleEmail} />
+                <input type="email" name="email" className="input-text" placeholder="Email Address"  email={data.email}
+                                           onChange={handleEmail} />
                 <i className="fa fa-envelope" />
               </div>
               <div className="form-group form-fg">
-                <input type="password" name="email" className="input-text" placeholder="Password" value={this.state.password} onChange={this.handlePassword} />
+                <input type="password" name="email" className="input-text" placeholder="Password"   password={data.password}
+                                 onChange={handlePassword} />
                 <i className="fa fa-unlock-alt" />
               </div>
               <div className="checkbox clearfix">
@@ -112,12 +128,11 @@ class Login extends React.Component {
     </div>
   </div>
 </div>
- 
 
 
-
-    );
-  }
+  );
 }
+
+ 
 
 export default Login;

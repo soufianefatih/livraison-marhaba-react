@@ -40,7 +40,7 @@ class Siderbar extends React.Component {
         <ul className="vertical-nav-menu">
           <li className="app-sidebar__heading">Dashboards</li>
           <li>
-            <a href="" className="mm-active text-decoration-none">
+            <a href="/" className="mm-active text-decoration-none">
               <i className="metismenu-icon pe-7s-science" />
               <i className="fas fa-burger-soda"></i>
               Livraison Marhaba

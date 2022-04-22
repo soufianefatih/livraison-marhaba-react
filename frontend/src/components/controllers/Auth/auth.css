@@ -6,7 +6,8 @@
 .login-fg .form-container .form-fg{float:left;width:100%;position:relative}
 .login-fg .form-container .input-text{font-size:14px;outline:none;color:#616161;border-radius:3px;font-weight:500;border:1px solid transparent;background:#fff;box-shadow:0 0 5px rgba(0,0,0,0.2)}
 .login-fg .form-container img{margin-bottom:5px;height:40px}
-.login-fg .form-container .form-fg input{float:left;width:100%;padding:11px 45px 11px 20px;border-radius:50px}
+.login-fg .form-container .form-fg input{float:left;width:100%;padding:11px 45px 11px 20px;border-radius:50px ;text-transform: lowercase;
+}
 .login-fg .form-container .form-fg i{position:absolute;top:13px;right:20px;font-size:19px;color:#616161}
 .login-fg .form-container label{font-weight:500;font-size:14px;margin-bottom:5px}
 .login-fg .form-container .forgot{margin:0;line-height:45px;color:#535353;font-size:15px;float:right}

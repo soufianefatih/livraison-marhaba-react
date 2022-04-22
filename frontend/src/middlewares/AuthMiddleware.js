@@ -6,8 +6,9 @@ export function isLogin() {
 
 export function checkLoginBeforeRenderComponent(component, ifNotLoginRedirectToUrl = "/login") {
     let login = window.localStorage.getItem("login") ?? 0;
+    let role = window.localStorage.getItem("role");
 
-    if (login == 1) {
+    if (login == 1 && role == 'admin') {
         return component;
     } else {
         return <Navigate to={ifNotLoginRedirectToUrl} />
@@ -23,3 +24,16 @@ export function checkIfNotLoginBeforeRenderComponent(component, ifNotLoginRedire
         return <Navigate to={ifNotLoginRedirectToUrl} />
     }
 }
+
+
+export function checkLoginRoleClient(component, ifNotLoginRedirectToUrl = "/login") {
+    let login = window.localStorage.getItem("login") ?? 0;
+    let role = window.localStorage.getItem("client");
+    if (login == 1 && role == 'client') {
+        return component;
+    } else {
+        return <Navigate to={ifNotLoginRedirectToUrl} />
+    }
+}
+
+

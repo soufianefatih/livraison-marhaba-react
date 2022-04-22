@@ -7,8 +7,8 @@ class Navbar extends React.Component {
      <header>
   <a href="#" className="logo"><i className="fas fa-utensils" /> Food Delivry.</a>
   <nav className="navbar">
-    <a className="active" href="#home">home</a>
-    <a href="#dishes">Category</a>
+    <a className="active" href="/">home</a>
+    <a href="/category">Category</a>
     <a href="#menu">menu</a>
     <a href="#about">about</a>
     <a href="/login">login</a>

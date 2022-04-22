@@ -181,7 +181,8 @@ header .icons #menu-bars{
 .dishes .box-container{
     display: flex;
     justify-content: center;
-    gap:4.3rem;
+    gap: 1.3rem;
+    flex-wrap: wrap;
 }
 
 .dishes .box-container .box{

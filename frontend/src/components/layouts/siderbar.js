@@ -1,4 +1,5 @@
 import React from "react";
+import { isLogin ,checkLoginRoleClient,checkLoginBeforeRenderComponent} from './../../middlewares/AuthMiddleware';
 
 
 class Siderbar extends React.Component {
@@ -16,6 +17,13 @@ class Siderbar extends React.Component {
     <i className="metismenu-icon pe-7s-close-circle" />
     Logout
   </a>
+
+
+    
+
+
+
+     
 
     return (
 

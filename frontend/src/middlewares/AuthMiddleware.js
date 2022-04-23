@@ -3,9 +3,7 @@ import {Navigate} from "react-router-dom";
 export function isLogin() {
     return window.localStorage.getItem("login") ?? 0;
 }
-export function userrole() {
-    return window.localStorage.getItem("role") ;
-}
+
 
 export function checkLoginBeforeRenderComponent(component, ifNotLoginRedirectToUrl = "/login") {
     let login = window.localStorage.getItem("login") ?? 0;

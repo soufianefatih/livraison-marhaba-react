@@ -1,6 +1,6 @@
 import React from "react";
 import "./landingpage.css";
-import { isLogin ,checkLoginRoleClient,checkLoginBeforeRenderComponent} from './../../middlewares/AuthMiddleware';
+import { isLogin } from './../../middlewares/AuthMiddleware';
 
 
 class Navbar extends React.Component {

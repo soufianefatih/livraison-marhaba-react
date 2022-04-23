@@ -1,27 +1,57 @@
 import React from "react";
 import "./landingpage.css";
-import { isLogin ,checkLoginRoleClient,checkLoginBeforeRenderComponent} from './../../middlewares/AuthMiddleware';
+import { isLogin } from './../../middlewares/AuthMiddleware';
 
 
 class Navbar extends React.Component {
+ 
+  logout = ()=> {
+
+    localStorage.clear()
+    window.location = "/";
+
+  }
+
   render() {
 
+    let role = window.localStorage.getItem("role");
     let button = '';
-    if (!isLogin()) {
-      button =<div>
+    let thisClass = this;
+    if (isLogin() && role == "client") {
+      button =
+      <div>
+      <a href="/panel">panel</a>
+      <a href="" onClick={() => thisClass.logout()}>Logout</a>
 
-        <a href="/login">login</a>
-      <a href="/register">register</a>
-      </div> 
-    } else{
+        </div>
+    } else if (isLogin() && role == "admin"){
       button = 
       <div>
       <a href="/dashboard/category">Dashboard</a>
-      <a href="">Logout</a>
+      <a href="" onClick={() => thisClass.logout()}>Logout</a>
 
         </div>
       
+    }else if (isLogin() && role == "livreur") {
+      button =
+      <div>
+      <a href="/dashboard/delivery">Command</a>
+      <a href="" onClick={() => thisClass.logout()}>Logout</a>
+
+        </div>
+     
     }
+     else {
+      button =
+      <div>
+
+      <a href="/login">login</a>
+    <a href="/register">register</a>
+    </div> 
+    }
+
+
+   
 
 
 

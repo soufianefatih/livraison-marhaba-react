@@ -143,7 +143,7 @@ class Category extends React.Component {
    {category}
   </div>
 </section>
-<Modal className="modal-container custom-map-modal"
+<Modal className="modal-container custom-map-modal bg-secondary"
           show={this.state.show} fullscreen={this.state.fullscreen} onHide={() => this.showModal()}>
           <Modal.Header closeButton>Products</Modal.Header>
           <Modal.Body>

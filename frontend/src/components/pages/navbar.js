@@ -14,15 +14,17 @@ class Navbar extends React.Component {
 
   render() {
 
+    let role = window.localStorage.getItem("role");
     let button = '';
     let thisClass = this;
-    if (!isLogin()) {
-      button =<div>
+    if (isLogin() && role == "client") {
+      button =
+      <div>
+      <a href="/panel">panel</a>
+      <a href="" onClick={() => thisClass.logout()}>Logout</a>
 
-        <a href="/login">login</a>
-      <a href="/register">register</a>
-      </div> 
-    } else{
+        </div>
+    } else if (isLogin() && role == "admin"){
       button = 
       <div>
       <a href="/dashboard/category">Dashboard</a>
@@ -30,6 +32,22 @@ class Navbar extends React.Component {
 
         </div>
       
+    }else if (isLogin() && role == "livreur") {
+      button =
+      <div>
+      <a href="/dashboard/delivery">Command</a>
+      <a href="" onClick={() => thisClass.logout()}>Logout</a>
+
+        </div>
+     
+    }
+     else {
+      button =
+      <div>
+
+      <a href="/login">login</a>
+    <a href="/register">register</a>
+    </div> 
     }
 
 

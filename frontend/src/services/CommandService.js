@@ -14,7 +14,7 @@ export function getcommanddetails(id) {
   }
 
 
-  export function confirmDeliveryCommand(id) {
-    return axios.get(APP_URL + "command/" + command_id +"delivery/" + id);
+  export function confirmDeliveryCommand(command_id,delivery_id) {
+    return axios.get(APP_URL + "command/" + command_id +"/delivery/" + delivery_id);
   }
 

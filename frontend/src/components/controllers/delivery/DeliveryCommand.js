@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllcommand , getcommanddetails } from './../../../services/CommandService';
+import { getAllcommand , getcommanddetails,confirmDeliveryCommand } from './../../../services/CommandService';
 import Navbar from './../../../components/layouts/navbar';
 import Siderbar from './../../../components/layouts/siderbar';
 import CardDash from './../../../components/layouts/carddash';
@@ -54,6 +54,20 @@ class Commanddelivery extends React.Component {
       }
 
   }
+
+  
+  async SetCommand(command_id) {
+    try {
+     
+      let set= await confirmDeliveryCommand(command_id);
+      alert(set.data);
+
+      console.log("command is : ",set);
+    } catch (e) {
+      console.error(e);
+      handelCatchInAxios(e);
+    }
+  }
  
 
   
@@ -94,7 +108,7 @@ class Commanddelivery extends React.Component {
             <button type="button" id="PopoverCustomT-1" className="btn btn-primary btn-sm" onClick={() => ThisClass.detailsCommand(command.id)} >Details</button>
           </td>
           <td className="text-center">
-            <button type="button" id="PopoverCustomT-1" className="btn btn-success btn-sm" onClick={() => ThisClass.detailsCommand(command.id)} >confirm</button>
+            <button type="button" id="PopoverCustomT-1" className="btn btn-success btn-sm" onClick={() => ThisClass.SetCommand(command.delivery_id)} >confirm</button>
           </td>
         </tr>
         );

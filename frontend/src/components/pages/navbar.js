@@ -4,9 +4,18 @@ import { isLogin ,checkLoginRoleClient,checkLoginBeforeRenderComponent} from './
 
 
 class Navbar extends React.Component {
+ 
+  logout = ()=> {
+
+    localStorage.clear()
+    window.location = "/";
+
+  }
+
   render() {
 
     let button = '';
+    let thisClass = this;
     if (!isLogin()) {
       button =<div>
 
@@ -17,11 +26,14 @@ class Navbar extends React.Component {
       button = 
       <div>
       <a href="/dashboard/category">Dashboard</a>
-      <a href="">Logout</a>
+      <a href="" onClick={() => thisClass.logout()}>Logout</a>
 
         </div>
       
     }
+
+
+   
 
 
 

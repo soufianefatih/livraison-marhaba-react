@@ -3,7 +3,7 @@ import "./landingpage.css";
 import Navbar  from './navbar';
 import {getAllcategory,getcategorydetails} from './../../../src/services/Categoryservice';
 import { getproduct} from './../../../src/services/ProductService';
-
+import { isLogin } from './../../middlewares/AuthMiddleware';
 import { Modal, button } from "react-bootstrap";
 
 
@@ -55,19 +55,26 @@ class Category extends React.Component {
           
           }
 
-          // window.localStorage.setItem("id", response.data.user.id);
  async infobutonproduct (id) {
-           try {
-              let product = await  getproduct(id);
-              let data = product.data; 
-              console.log("info  products:", data);  
-             
+
+  if (isLogin()) {
+    try {
+      let product = await  getproduct(id);
+      let data = product.data; 
+      let array = [data.id]
+      console.log("info  products:", data); 
+      window.localStorage.setItem("id product",JSON.stringify(array)); 
+     
+  
+     
+  } catch (e) {
+      console.error(e);
+    //   handelCatchInAxios(e);
+  }
+  }else {
+    window.location = "/login"
+  }
           
-             
-          } catch (e) {
-              console.error(e);
-            //   handelCatchInAxios(e);
-          }
           
           }
 
@@ -81,7 +88,10 @@ class Category extends React.Component {
         return (
             <div className="card box " style={{maxWidth: '20rem'}} >
             <a href="#" className="fas fa-heart" />
-              <a href="#" className="fas fa-eye" />
+              <a href="#" onClick={async () => {
+                  await ThisClass.detailsButton(category.id)
+                  ThisClass.showModal();
+                }} className="fas fa-eye" />
                       <img className="card-img-top p-3" src={src} height={'150px'} alt="Card image cap" />
                     <div className="card-body">
                     <h3 className="card-title">{category.name}</h3>

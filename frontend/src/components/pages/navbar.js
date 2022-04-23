@@ -7,8 +7,7 @@ class Navbar extends React.Component {
  
   logout = ()=> {
 
-    localStorage.clear()
-    window.location = "/";
+    localStorage.clear();    window.location = "/";
 
   }
 

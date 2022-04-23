@@ -65,6 +65,8 @@ class Navbar extends React.Component {
     <a href="/category">Category</a>
     <a href="#menu">menu</a>
     <a href="/about">about</a>
+    <a href="/contact">contact</a>
+
        {button}
   </nav>
   <div className="icons">

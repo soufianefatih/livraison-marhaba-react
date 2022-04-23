@@ -110,6 +110,9 @@ class Commanddelivery extends React.Component {
           <td className="text-center">
             <button type="button" id="PopoverCustomT-1" className="btn btn-success btn-sm" onClick={() => ThisClass.SetCommand(command.delivery_id)} >confirm</button>
           </td>
+          <td className="text-center">
+            <button type="button" id="PopoverCustomT-1" className="btn btn-secondary btn-sm" onClick={() => ThisClass.SetCommand(command.delivery_id)} >change</button>
+          </td>
         </tr>
         );
       });
@@ -252,6 +255,7 @@ class Commanddelivery extends React.Component {
               <th className="text-center">total</th>
               <th className="text-center">info</th>
               <th className="text-center">Set Command</th>
+              <th className="text-center">change Status</th>
 
             </tr>
           </thead>

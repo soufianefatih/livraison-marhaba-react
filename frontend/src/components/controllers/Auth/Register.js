@@ -69,7 +69,7 @@ class Register extends React.Component {
     
     <div className="login-section">
           <div className="logo clearfix">
-            <a href="#">
+            <a href="/">
               Livraison App
             </a>
           </div>

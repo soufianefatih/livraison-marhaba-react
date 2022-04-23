@@ -1,7 +1,9 @@
 import React from "react";
 import "./landingpage.css";
 import Navbar  from './navbar';
-import {getAllcategory,getcategorydetails } from './../../../src/services/Categoryservice';
+import {getAllcategory,getcategorydetails} from './../../../src/services/Categoryservice';
+import { getproduct} from './../../../src/services/ProductService';
+
 import { Modal, button } from "react-bootstrap";
 
 
@@ -53,6 +55,22 @@ class Category extends React.Component {
           
           }
 
+          // window.localStorage.setItem("id", response.data.user.id);
+ async infobutonproduct (id) {
+           try {
+              let product = await  getproduct(id);
+              let data = product.data; 
+              console.log("info  products:", data);  
+             
+          
+             
+          } catch (e) {
+              console.error(e);
+            //   handelCatchInAxios(e);
+          }
+          
+          }
+
   render() {
        // info  category:::::::::::::::::::::::::::::::::::::::::
     let category = "";
@@ -91,6 +109,7 @@ class Category extends React.Component {
 
   let infoproducts = "";
   if (!this.state.pandingproducts) {
+    let ThisClass= this;
     infoproducts = this.state.infoproducts.products.map(function (product) {
       let src = "http://localhost:5500/" + product.image ;
 
@@ -113,7 +132,7 @@ class Category extends React.Component {
         </div>
         <h3>{product.name}</h3>
         <p>{product.decsription}.</p>
-        <a href="#" className="btnn">add to cart</a>
+        <a href="#" className="btnn" onClick={()=>  ThisClass.infobutonproduct(product.id)} >add to cart</a>
         <span className="price">$ {product.price}</span>
       </div>
       

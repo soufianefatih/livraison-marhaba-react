@@ -2,8 +2,23 @@ import React from "react";
 
 
 class Siderbar extends React.Component {
+  logout = ()=> {
+
+    localStorage.clear()
+    window.location = "/";
+
+  }
   render() {
+
+    let button = '';
+    let thisClass = this;
+    button = <a className="text-decoration-none mt-5 btn btn-danger " href="#" onClick={() => thisClass.logout()}>
+    <i className="metismenu-icon pe-7s-close-circle" />
+    Logout
+  </a>
+
     return (
+
 
   <div className="app-sidebar sidebar-shadow">
     <div className="app-header__logo">
@@ -144,6 +159,10 @@ class Siderbar extends React.Component {
            
               
             </ul>
+          </li>
+          <li>
+           {button}
+          
           </li>
          
         </ul>

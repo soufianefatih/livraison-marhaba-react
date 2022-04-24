@@ -415,6 +415,24 @@ header .icons #menu-bars{
 }
 
 
+.contact-from {
+
+    background-image: url('https://static.vecteezy.com/system/resources/previews/002/292/867/original/delivery-service-concept-courier-riding-by-truck-city-background-illustration-vector.jpg');
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size:cover;
+}
+
+.cardcontact{
+
+    background: rgb(24 39 27 / 22%)! important;
+}
+
+.form-controlaa{
+
+    background: rgb(24 39 27 / 22%)! important;
+
+}
 
 
 

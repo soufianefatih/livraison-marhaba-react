@@ -1,7 +1,9 @@
 import React from "react";
 import "./landingpage.css";
 import Navbar  from './navbar';
-import {getAllcategory,getcategorydetails } from './../../../src/services/Categoryservice';
+import {getAllcategory,getcategorydetails} from './../../../src/services/Categoryservice';
+import { getproduct} from './../../../src/services/ProductService';
+import { isLogin } from './../../middlewares/AuthMiddleware';
 import { Modal, button } from "react-bootstrap";
 
 
@@ -53,6 +55,29 @@ class Category extends React.Component {
           
           }
 
+ async infobutonproduct (id) {
+
+  if (isLogin()) {
+    try {
+      let product = await  getproduct(id);
+      let data = product.data; 
+      let array = [data.id]
+      console.log("info  products:", data); 
+      window.localStorage.setItem("id product",JSON.stringify(array)); 
+     
+  
+     
+  } catch (e) {
+      console.error(e);
+    //   handelCatchInAxios(e);
+  }
+  }else {
+    window.location = "/login"
+  }
+          
+          
+          }
+
   render() {
        // info  category:::::::::::::::::::::::::::::::::::::::::
     let category = "";
@@ -63,7 +88,10 @@ class Category extends React.Component {
         return (
             <div className="card box " style={{maxWidth: '20rem'}} >
             <a href="#" className="fas fa-heart" />
-              <a href="#" className="fas fa-eye" />
+              <a href="#" onClick={async () => {
+                  await ThisClass.detailsButton(category.id)
+                  ThisClass.showModal();
+                }} className="fas fa-eye" />
                       <img className="card-img-top p-3" src={src} height={'150px'} alt="Card image cap" />
                     <div className="card-body">
                     <h3 className="card-title">{category.name}</h3>
@@ -91,6 +119,7 @@ class Category extends React.Component {
 
   let infoproducts = "";
   if (!this.state.pandingproducts) {
+    let ThisClass= this;
     infoproducts = this.state.infoproducts.products.map(function (product) {
       let src = "http://localhost:5500/" + product.image ;
 
@@ -113,7 +142,7 @@ class Category extends React.Component {
         </div>
         <h3>{product.name}</h3>
         <p>{product.decsription}.</p>
-        <a href="#" className="btnn">add to cart</a>
+        <a href="#" className="btnn" onClick={()=>  ThisClass.infobutonproduct(product.id)} >add to cart</a>
         <span className="price">$ {product.price}</span>
       </div>
       
@@ -132,7 +161,7 @@ class Category extends React.Component {
 
 
     
-    return (
+ return (
         <div className= "landingpage">
 <Navbar/>
   <section className="dishes mt-2" id="dishes">

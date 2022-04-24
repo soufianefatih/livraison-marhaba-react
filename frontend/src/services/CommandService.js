@@ -9,6 +9,11 @@ axios.defaults.headers = {
 export function getAllcommand() {
   return axios.get(APP_URL + "command");
 }
+export function getOnecommand(command_id) {
+  return axios.get(APP_URL + "command/" + command_id);
+}
+
+
 export function getcommanddetails(id) {
     return axios.get(APP_URL + "command/commandproducts/" + id);
   }

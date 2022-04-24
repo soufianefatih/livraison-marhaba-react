@@ -161,7 +161,7 @@ class Category extends React.Component {
 
 
     
-    return (
+ return (
         <div className= "landingpage">
 <Navbar/>
   <section className="dishes mt-2" id="dishes">

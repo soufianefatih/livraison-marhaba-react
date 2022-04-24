@@ -7,7 +7,6 @@ import {
 } from "./../../../services/CommandService";
 import Navbar from "./../../../components/layouts/navbar";
 import Siderbar from "./../../../components/layouts/siderbar";
-import CardDash from "./../../../components/layouts/carddash";
 import { handelCatchInAxios } from "../../../services/AxiosCatchService";
 
 class Commanddelivery extends React.Component {
@@ -285,36 +284,9 @@ class Commanddelivery extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="page-title-actions">
-                    <button
-                      type="button"
-                      data-toggle="tooltip"
-                      title="Example Tooltip"
-                      data-placement="bottom"
-                      className="btn-shadow mr-3 btn btn-dark"
-                    >
-                      <i className="fa fa-star" />
-                    </button>
-                    <div className="d-inline-block dropdown">
-                      <button
-                        type="button"
-                        className="btn-shadow  btn btn-info"
-                      >
-                        <span className="btn-icon-wrapper pr-2 opacity-7">
-                          <i class="fas fa-plus-circle"></i>
-                        </span>
-                        <a
-                          className="text-decoration-none text-white"
-                          href="/dashboard/product/create"
-                        >
-                          Create Product
-                        </a>
-                      </button>
-                    </div>
-                  </div>{" "}
                 </div>
               </div>
-              <CardDash />
+             
               {/* :::::::::::::::::tables commands::::::::::::::::::::: */}
               <div className="row">
                 <div className="col-md-12">
@@ -322,11 +294,6 @@ class Commanddelivery extends React.Component {
                     <div className="card-header">
                       Table commands
                       <div className="btn-actions-pane-right">
-                        <div role="group" className="btn-group-sm btn-group">
-                          <button className="active btn btn-focus">
-                            Create Products
-                          </button>
-                        </div>
                       </div>
                     </div>
                     <div className="table-responsive">

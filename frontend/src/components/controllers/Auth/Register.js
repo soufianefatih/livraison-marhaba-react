@@ -98,7 +98,7 @@ class Register extends React.Component {
 
               </div>
               <div className="form-group form-fg">
-              <select  value={this.state.role} onChange={this.handleType} required>
+              <select className="input-text" value={this.state.role} onChange={this.handleType} required>
                                 <option >Role</option>
 
                                 <option value='client'>Client</option>

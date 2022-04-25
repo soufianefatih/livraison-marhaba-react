@@ -19,17 +19,15 @@ class Commanddelivery extends React.Component {
       pandingclient: true,
       pandingdelivery: true,
       pandingproduct: true,
-      delivery : '',
-     
     };
-    // this.handleDelivery = this.handleDelivery.bind(this);
+    this.handleDelivery = this.handleDelivery.bind(this);
     
   }
 
-// handleDelivery (event){
-//   this.setState({ delivery_id: event.target.value });
+handleDelivery (){
+  this.setState({ delivery_id:window.localStorage.getItem('id')});
 
-// }
+}
   async infoComand() {
     try {
       let res = await getAllcommand(); // get axios promise
@@ -60,24 +58,27 @@ class Commanddelivery extends React.Component {
     }
   }
 
+
+
+
   async SetCommand(command_id ,delivery_id) {
     let comand = await getOnecommand(command_id);
     let  data = comand.data.id
+   
     console.log("command is : ",data ,delivery_id);
-    // try {
+    try {
         if (delivery_id == null) {
-           await confirmDeliveryCommand(command_id,delivery_id)
-           this.setState({ delivery:delivery_id});
+           await confirmDeliveryCommand(command_id,window.localStorage.getItem('id'))
           alert('on');
-        } else{
-          alert('off')
+        }else{
+          alert ('off')
         }
     
     
-    // } catch (e) {
-    //   console.error(e);
-    //   handelCatchInAxios(e);
-    // }
+    } catch (e) {
+      console.error(e);
+      handelCatchInAxios(e);
+    }
   }
 
   render() {
@@ -153,7 +154,7 @@ class Commanddelivery extends React.Component {
                 id="PopoverCustomT-1"
                 className="btn btn-success btn-sm"
                 onClick={() => ThisClass.SetCommand(command.id, command.delivery_id)}
-              
+                
               >
                 confirm
               </button>

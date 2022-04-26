@@ -3,11 +3,12 @@ import {
   getAllcommand,
   getcommanddetails,
   confirmDeliveryCommand,
-  getOnecommand
+  getOnecommand,statusCommand
 } from "./../../../services/CommandService";
 import Navbar from "./../../../components/layouts/navbar";
 import Siderbar from "./../../../components/layouts/siderbar";
 import { handelCatchInAxios } from "../../../services/AxiosCatchService";
+import { DropdownButton ,Dropdown } from 'react-bootstrap';
 
 class Commanddelivery extends React.Component {
   constructor(props) {
@@ -20,14 +21,11 @@ class Commanddelivery extends React.Component {
       pandingdelivery: true,
       pandingproduct: true,
     };
-    this.handleDelivery = this.handleDelivery.bind(this);
+   
     
   }
 
-handleDelivery (){
-  this.setState({ delivery_id:window.localStorage.getItem('id')});
 
-}
   async infoComand() {
     try {
       let res = await getAllcommand(); // get axios promise
@@ -58,9 +56,6 @@ handleDelivery (){
     }
   }
 
-
-
-
   async SetCommand(command_id ,delivery_id) {
     let comand = await getOnecommand(command_id);
     let  data = comand.data.id
@@ -79,6 +74,15 @@ handleDelivery (){
       console.error(e);
       handelCatchInAxios(e);
     }
+  }
+
+  async ChangeStausCommand(command_id,status) {
+    let comand = await getOnecommand(command_id);
+    let  data = comand.data.id
+    console.log("command is : ",data );
+    let statusc = await statusCommand(command_id,status)
+    console.log(statusc.data);
+     
   }
 
   render() {
@@ -160,14 +164,18 @@ handleDelivery (){
               </button>
             </td>
              <td className="text-center">
-              <button
-                type="button"
-                id="PopoverCustomT-1"
-                className="btn btn-secondary btn-sm"
-                onClick={() => ThisClass.SetCommand(command.delivery_id)}
-              >
-                change
-              </button>
+            
+             <Dropdown>
+     <Dropdown.Toggle variant="secondary" id="dropdown-basic" size="sm" >
+    change 
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+    <Dropdown.Item href="#/action-1"  onClick={() => ThisClass.ChangeStausCommand(command.id,2)}  > in livraison</Dropdown.Item>
+     <Dropdown.Item href="#/action-2" onClick={() => ThisClass.ChangeStausCommand(command.id,3)} > delevred</Dropdown.Item>
+    <Dropdown.Item href="#/action-3" onClick={() => ThisClass.ChangeStausCommand(command.id,4)} > Canceled</Dropdown.Item> 
+  </Dropdown.Menu>
+</Dropdown>
             </td> 
           </tr>
         );

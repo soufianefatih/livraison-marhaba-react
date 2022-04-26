@@ -23,3 +23,8 @@ export function getcommanddetails(id) {
     return axios.get(APP_URL + "command/" + command_id +"/delivery/" + delivery_id);
   }
 
+  export function statusCommand(command_id,status) {
+    return axios.get(APP_URL + "command/" + command_id +"/statuschange/" + status);
+  }
+
+

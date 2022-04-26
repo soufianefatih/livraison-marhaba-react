@@ -14,9 +14,9 @@ class About extends React.Component {
     <div className="card mt-5  cardcontact" >
       <div className="row p-3">
         <div className="col-md-6 mx-auto text-center">
-          <h1 className="text-success">Contact us</h1>
-          <div className="divider bg-white mx-auto" />
-          <p className="text-dark lead">
+          <h1 className="text-success font-weight-bold">Contact us</h1>
+          <div className="divider bg-success mx-auto" />
+          <p className="text-dark lead font-weight-normal">
             We are looking forward to hear something from you?
             Lorem, ipsum dolor sit amet consectetur adipisicin .
           </p>

@@ -7,6 +7,8 @@ import Landingpage from './components/pages/landingpage';
 import Categorypage from './components/pages/category';
 import About from './components/pages/about';
 import Contact from './components/pages/contactus';
+import Panel from './components/pages/Panal';
+
 
 import Login from './components/controllers/Auth/Login';
 import Register from './components/controllers/Auth/Register';
@@ -27,6 +29,8 @@ import Dashboard from './components/dashboard/dashboard';
 import { checkLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
 import { checkIfNotLoginBeforeRenderComponent } from './middlewares/AuthMiddleware'
 import{checkLoginRoleDelivery} from './middlewares/AuthMiddleware'
+import{checkLoginRoleClient} from './middlewares/AuthMiddleware'
+
 
 
 
@@ -59,6 +63,8 @@ function App() {
         <Route path="/category" element={(<Categorypage />)} />
         <Route path="/about" element={(<About />)} />
         <Route path="/contact" element={(<Contact />)} />
+        <Route path="/panel" element={checkLoginRoleClient(< Panel />)} />
+
 
 
 

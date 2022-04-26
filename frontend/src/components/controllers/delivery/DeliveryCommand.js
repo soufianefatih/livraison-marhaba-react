@@ -86,10 +86,14 @@ class Commanddelivery extends React.Component {
   }
 
   render() {
+  
+ 
+
     // table command:::::::::::::::::::::::::::::::::::::::::
     let tablecommand = "";
     if (!this.state.panding) {
       let ThisClass = this;
+      let status = window.localStorage.getItem("status");
       tablecommand = this.state.infocommand.map(function (command, index) {
         return (
           <tr key={index}>
@@ -143,17 +147,25 @@ class Commanddelivery extends React.Component {
             </td>
 
             <td className="text-center">
-              <button
+              {status == 1 ? (  <button
                 type="button"
                 id="PopoverCustomT-1"
                 className="btn btn-primary btn-sm"
                 onClick={() => ThisClass.detailsCommand(command.id)}
               >
                 Details
-              </button>
+              </button>) :(  <button
+                type="button"
+                id="PopoverCustomT-1"
+                className="btn btn-danger btn-sm"
+                
+              >
+                off
+              </button>)}
+            
             </td>
             <td className="text-center">
-              <button
+              {status == 1 && command.delivery_id == null ? ( <button
                 type="button"
                 id="PopoverCustomT-1"
                 className="btn btn-success btn-sm"
@@ -161,11 +173,27 @@ class Commanddelivery extends React.Component {
                 
               >
                 confirm
-              </button>
+              </button>) : status == 1 && command.delivery_id != null ? ( <button
+                type="button"
+                id="PopoverCustomT-1"
+                className="btn btn-danger btn-sm"
+                
+                
+              >
+                off
+              </button>): ( <button
+                type="button"
+                id="PopoverCustomT-1"
+                className="btn btn-danger btn-sm"
+                
+                
+              >
+                off
+              </button>)}
+             
             </td>
              <td className="text-center">
-            
-             <Dropdown>
+               {status == 1 ? (         <Dropdown>
      <Dropdown.Toggle variant="secondary" id="dropdown-basic" size="sm" >
     change 
       </Dropdown.Toggle>
@@ -175,7 +203,17 @@ class Commanddelivery extends React.Component {
      <Dropdown.Item href="#/action-2" onClick={() => ThisClass.ChangeStausCommand(command.id,3)} > delevred</Dropdown.Item>
     <Dropdown.Item href="#/action-3" onClick={() => ThisClass.ChangeStausCommand(command.id,4)} > Canceled</Dropdown.Item> 
   </Dropdown.Menu>
-</Dropdown>
+</Dropdown>) : (<button
+                type="button"
+                id="PopoverCustomT-1"
+                className="btn btn-danger btn-sm"
+                
+                
+              >
+                off
+              </button>)}
+            
+    
             </td> 
           </tr>
         );

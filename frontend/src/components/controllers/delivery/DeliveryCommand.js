@@ -94,6 +94,7 @@ class Commanddelivery extends React.Component {
     if (!this.state.panding) {
       let ThisClass = this;
       let status = window.localStorage.getItem("status");
+      let user = window.localStorage.getItem("id");
       tablecommand = this.state.infocommand.map(function (command, index) {
         return (
           <tr key={index}>
@@ -193,7 +194,7 @@ class Commanddelivery extends React.Component {
              
             </td>
              <td className="text-center">
-               {status == 1 ? (         <Dropdown>
+               {status == 1 && command.delivery_id == user  ? (         <Dropdown>
      <Dropdown.Toggle variant="secondary" id="dropdown-basic" size="sm" >
     change 
       </Dropdown.Toggle>

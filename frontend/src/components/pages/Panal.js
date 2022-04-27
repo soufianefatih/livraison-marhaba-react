@@ -12,7 +12,7 @@ class About extends React.Component {
        <div className=" pt-5 ">
        <h3 className="sub-heading mt-5 "> Create Command </h3>
   <h1 className="heading"> why choose us? </h1>
-       <div className='container mt-5'>
+       <div className='container mt-5 '>
         <div className=' card text-white bg-white 'style={{maxWidth: '100rem'}} >
        <div className="card-header text-black">Create Command</div>
        <div className="card-body">
